@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LYORE ABAYA | Luxury E-commerce</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6B1C23",
+                        "background-light": "#FAF9F6",
+                        "background-dark": "#201213",
+                        "soft-beige": "#F5F3EF",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .nav-link {
+                @apply relative text-[16px] tracking-widest uppercase transition-colors duration-300 hover:text-primary;
+            }
+            .nav-link-active::after {
+                content: '';
+                @apply absolute -bottom-1 left-0 w-full h-[1px] bg-primary;
+            }
+            .glass-nav {
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+        }
+        body {
+            font-family: 'Newsreader', serif;
+        }
+        header {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#1a0f10] dark:text-[#fbf9f9] selection:bg-primary selection:text-white">
+    <header
+        class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-primary/5 bg-[#FAF9F6]/95 dark:bg-background-dark/95 px-6 lg:px-12 py-5">
+        <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+            <!-- اللوجو على اليسار -->
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="LYORE ABAYA Logo" class="h-12 md:h-14 w-auto" />
+                </a>
+            </div>
+
+            <!-- روابط الصفحات في المنتصف -->
+            <nav class="hidden lg:flex items-center gap-10 font-sans absolute left-1/2 transform -translate-x-1/2">
+                <a class="nav-link nav-link-active" href="index.html">Home</a>
+                <a class="nav-link" href="collections.html">Collections</a>
+                <a class="nav-link" href="size-guide.html">Size Guide</a>
+                <a class="nav-link" href="returns-policy.html">Shipping</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+
+            <!-- أيقونة البحث فقط على اليمين -->
+            <div class="flex items-center">
+                <button class="hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined font-light text-[24px]">search</span>
+                </button>
+            </div>
+
+            <!-- زر القائمة للموبايل -->
+            <div class="lg:hidden flex items-center">
+                <button class="text-primary">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="pt-24">
+        <section class="relative h-[90vh] w-full overflow-hidden">
+            <div class="absolute inset-0 bg-center bg-cover"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvjbGfgFiQQhv2QhSBX7JyV6XkVuf-JKfGM3X1CthXYckVqROq9dLvf8gLuArgxPHz-P-oywhx1epp8RlRNqcZkNmaBJZUxe9Md4ckVpMHYVu9AVohyiHzix8ekznxplgVn-fWVC31i2MgnhFsgrcRq9cID_-Lc5a57wlaOVsvYqnpPNChX1zsR7iv9_siH2-5o1PcbpGvmgzhvYOkiOvweDG8L8eYqNsP2K9ymWMn3au3emTIxWA477bT00xw1vkqDpUcbqzyhU-Q');">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent opacity-80">
+            </div>
+            <div class="relative h-full flex flex-col items-center justify-end pb-20 px-6 text-center">
+                <div class="max-w-3xl space-y-6">
+                    <h2 class="text-5xl md:text-8xl font-light italic leading-tight text-white drop-shadow-lg">
+                        The New Era of Modesty
+                    </h2>
+                    <p class="text-lg md:text-xl text-white/90 font-light max-w-xl mx-auto drop-shadow-md">
+                        Discover high-end luxury abayas crafted with elegance and inner strength.
+                    </p>
+                    <div class="pt-8">
+                        <a href="collections.html"
+                            class="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-transform hover:scale-105 active:scale-95 shadow-xl inline-block">
+                            Shop New Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 px-6 lg:px-40 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1440px] mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-display mb-8 text-primary leading-tight">
+                        The LYORE Philosophy
+                    </h3>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8 font-sans">
+                        The diamond within our logo isn't just an ornament. It represents the resilient, brilliant core
+                        of every woman. Our designs bridge the gap between traditional values and avant-garde fashion,
+                        using only the most exquisite fabrics.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <span class="material-symbols-outlined text-primary text-3xl">verified</span>
+                            <h4 class="font-bold text-sm uppercase tracking-wider font-sans">Artisanal</h4>
+                            <p class="text-sm text-gray-500 font-sans">Hand-stitched in Dubai</p>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="material-symbols-outlined text-primary text-3xl">eco</span>
+                            <h4 class="font-bold text-sm uppercase tracking-wider font-sans">Premium</h4>
+                            <p class="text-sm text-gray-500 font-sans">Pure Mulberry Silk</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative aspect-[4/5] rounded-xl overflow-hidden group">
+                    <img alt="Detail of high-end fabric craftsmanship"
+                        class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH5HXSBxFqtRvkavttHiQBcqfk82aiG3bprDqiwRZPWVR6tBAph5V4Trw9Hqz64jj-SX3QF4sHVCHqKGtD6PAIkeU20hqA0q4DcUwNoOZ08XV-3-OgJx-v-NqAZMkWmSHEtCYkZiUqRvh5Xad9V9Y39BhSCxq8WjsyIZ-JlVGh9qgDXZraC6qL_URJ92fDN5nDj5lD_YRB9tfE4m-f63lj2qRj4ZuLFl3RSyUC44tscrwkum2DMtkpQaUOF91E45qApO3uk4J59mn4" />
+                    <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 px-6 lg:px-16 bg-soft-beige dark:bg-primary/5">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="flex justify-between items-end mb-12">
+                    <h2 class="text-4xl md:text-6xl font-display text-primary italic">New Arrivals</h2>
+                    <a class="text-sm font-bold uppercase tracking-widest border-b-2 border-primary pb-1 hover:text-primary/70 transition-colors font-sans"
+                        href="collections.html">View All</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                    <a href="product-detail.html" class="group cursor-pointer block">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-white mb-6">
+                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlKSf8MQzAKzp_L5e-bLcWTAdQ5lERWszfNfFavPBBRINhE2pWO-KJPYgu-V5sYcr2IB9vJ4IeJNwopUwf_M_ga7ZOi6GrV5A3Lk5fPT7k7jAHn5iYjkz_PCRK72YvMfgAvRv3dTYtUriRXZ8oJTx_aDM-LNJSVgNFZqctY0K3yZ9pByRZJYnf4Q2v2Iak2CRnGU1Al50Lp-hA1qmIQ_X4Cf5cTo4jCQ7gSGKSjogVLFk8OGRsVeBGxY4qpjIpe_0mpY8eB_oYkPgr"
+                                alt="The Velvet Noir" />
+                            <span
+                                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest font-sans">Bestseller</span>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-xl font-display group-hover:text-primary transition-colors">The Velvet Noir
+                            </h3>
+                            <p class="text-primary font-medium tracking-wide font-sans">$299.00</p>
+                        </div>
+                    </a>
+                    <a href="product-detail.html" class="group cursor-pointer block">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-white mb-6">
+                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkEpVLqr7XSEAwbZ6yxH03sbjOe2SM87gin8Eod0oLc0TW54Wchfk1yi6S7vVBuJmmEXSzSW1zyb9RaiF-aj6DM1rv8x-is5yeEeALTe7x0fHUs76Z_N8lQAtmDUBiYccQrJJxQyofQ92JbWJVjZv3-G2hJDdKc35HotIVGAzDq0Xyy-GfF7N2sieBMu5t345q6pkfBpd_YVZ-VJU0cQ8S31jhF7-rOFQEN6iHJFW_B2VS8TNNEz9ABzJElYFItF4fJFBG3fhBcS7G"
+                                alt="Silk Sand Kaftan" />
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-xl font-display group-hover:text-primary transition-colors">Silk Sand Kaftan
+                            </h3>
+                            <p class="text-primary font-medium tracking-wide font-sans">$350.00</p>
+                        </div>
+                    </a>
+                    <a href="product-detail.html" class="group cursor-pointer block">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-white mb-6">
+                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu"
+                                alt="Maroon Dusk Abaya" />
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-xl font-display group-hover:text-primary transition-colors">Maroon Dusk
+                                Abaya</h3>
+                            <p class="text-primary font-medium tracking-wide font-sans">$275.00</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="py-32 px-6 text-center bg-background-light dark:bg-background-dark">
+            <div class="max-w-2xl mx-auto space-y-8">
+                <h2 class="text-4xl md:text-5xl font-display italic">Join the Inner Circle</h2>
+                <p class="text-gray-500 tracking-wide uppercase text-xs font-sans">Be the first to know about new
+                    collection drops and private events.</p>
+                <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                    <input
+                        class="flex-1 rounded-full bg-soft-beige dark:bg-primary/10 border-none px-6 py-4 focus:ring-1 focus:ring-primary font-sans"
+                        placeholder="Your email address" type="email" />
+                    <button
+                        class="bg-primary text-white rounded-full px-10 py-4 text-sm font-bold uppercase tracking-widest hover:opacity-90 transition-opacity font-sans">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-primary text-white py-20 px-6 lg:px-16">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 font-sans">
+            <div class="space-y-6">
+                <a href="index.html">
+                    <img src="assets/images/logo_F.png" alt="LYORE ABAYA Logo" class="h-10 w-auto" />
+                </a>
+                <p class="text-sm text-white/70 leading-relaxed font-light">
+                    Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
+                    Inspired by the diamond within.
+                </p>
+                <div class="flex gap-4">
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">camera</span></a>
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">chat</span></a>
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">mail</span></a>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Shop</h4>
+                <ul class="space-y-4 text-sm font-light text-white/70">
+                    <li><a class="hover:text-white transition-colors" href="collections.html">New Arrivals</a></li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Abaya Collections</a></li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Kaftans &amp; Dresses</a>
+                    </li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Limited Edition</a></li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Customer Care</h4>
+                <ul class="space-y-4 text-sm font-light text-white/70">
+                    <li><a class="hover:text-white transition-colors" href="contact.html">Bespoke Orders</a></li>
+                    <li><a class="hover:text-white transition-colors" href="returns-policy.html">Shipping &amp;
+                            Returns</a></li>
+                    <li><a class="hover:text-white transition-colors" href="size-guide.html">Size Guide</a></li>
+                    <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Our Atelier</h4>
+                <div class="space-y-4 text-sm font-light text-white/70">
+                    <p>Downtown Dubai, UAE<br />Boulevard Circle 14</p>
+                    <p>Tel: +971 4 123 4567<br />Email: concierge@lyore.com</p>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/50 font-sans">
+            <p>© 2024 LYORE ABAYA. All Rights Reserved.</p>
+            <div class="flex gap-8">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

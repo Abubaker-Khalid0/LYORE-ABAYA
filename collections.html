@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Abaya Collection | LYORE ABAYA Luxury Listing</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6B1C23",
+                        "background-light": "#FAF9F6",
+                        "soft-beige": "#F5F3EF",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.75rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-light text-primary font-sans antialiased;
+            }
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .swatch {
+            @apply w-2.5 h-2.5 rounded-full border border-gray-200 cursor-pointer transition-all duration-300 hover:scale-125;
+        }
+        .product-card {
+            @apply transition-all duration-500 ease-out;
+        }
+        .product-card:hover {
+            @apply -translate-y-2;
+            box-shadow: 0 20px 40px -15px rgba(107, 28, 35, 0.08);
+        }
+        .btn-transition {
+            @apply transition-all duration-300 active:scale-95;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+    <header
+        class="fixed top-0 left-0 right-0 z-[100] glass-nav bg-white/90 border-b border-primary/5 px-6 lg:px-16 py-4">
+        <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-6 flex-1">
+                <button class="flex items-center gap-2 hover:text-primary transition-colors btn-transition">
+                    <span class="material-symbols-outlined font-light">menu</span>
+                </button>
+                <button class="hover:text-primary transition-colors btn-transition">
+                    <span class="material-symbols-outlined font-light">search</span>
+                </button>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="LYORE ABAYA Logo" class="h-12 md:h-14 w-auto" />
+                </a>
+            </div>
+            <div class="flex items-center justify-end gap-6 flex-1">
+                <nav class="hidden xl:flex items-center gap-8 mr-8">
+                    <a class="text-[11px] uppercase tracking-widest hover:text-primary/70 transition-colors"
+                        href="collections.html">Collections</a>
+                    <a class="text-[11px] uppercase tracking-widest hover:text-primary/70 transition-colors"
+                        href="contact.html">The Atelier</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <span
+                        class="material-symbols-outlined font-light cursor-pointer hover:text-primary btn-transition">person</span>
+                    <div class="relative cursor-pointer hover:text-primary btn-transition">
+                        <span class="material-symbols-outlined font-light">shopping_bag</span>
+                        <span
+                            class="absolute -top-1 -right-1 bg-primary text-white text-[9px] w-3.5 h-3.5 rounded-full flex items-center justify-center">2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="pt-[72px]">
+        <section class="relative bg-background-light py-12 px-6 lg:px-16 overflow-hidden border-b border-primary/5">
+            <div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 items-end">
+                <div class="relative z-10 max-w-2xl">
+                    <nav class="mb-4">
+                        <ol class="flex items-center gap-2 text-[9px] tracking-[0.2em] text-primary/60 uppercase">
+                            <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
+                            <li><span class="material-symbols-outlined text-[10px]">chevron_right</span></li>
+                            <li><a class="hover:text-primary transition-colors" href="collections.html">Collections</a>
+                            </li>
+                            <li><span class="material-symbols-outlined text-[10px]">chevron_right</span></li>
+                            <li class="text-primary font-bold">Abaya</li>
+                        </ol>
+                    </nav>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-primary mb-4 leading-tight">Abaya
+                        Collection</h2>
+                    <p class="text-sm font-light text-primary/80 max-w-md leading-relaxed">
+                        A symphony of fluid silhouettes and artisanal details, designed for the modern woman who finds
+                        strength in elegance and grace in modesty.
+                    </p>
+                </div>
+                <div class="hidden lg:flex justify-end items-center">
+                    <div
+                        class="text-[10px] uppercase tracking-[0.3em] text-primary/40 rotate-90 origin-right translate-y-[-100%]">
+                        Season Atelier MMXXIV</div>
+                </div>
+            </div>
+        </section>
+        <div class="sticky top-[72px] z-40 bg-white border-b border-primary/5 px-6 lg:px-16 py-3">
+            <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <button
+                        class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] hover:text-primary/70 btn-transition">
+                        <span class="material-symbols-outlined text-lg">tune</span>
+                        Filter
+                    </button>
+                    <div class="hidden md:flex items-center gap-2">
+                        <span
+                            class="bg-primary/5 text-primary/70 border border-primary/10 px-2 py-0.5 rounded text-[9px] flex items-center gap-1 uppercase tracking-tighter">
+                            Maroon <span
+                                class="material-symbols-outlined text-[12px] cursor-pointer hover:text-primary transition-colors">close</span>
+                        </span>
+                        <button
+                            class="text-primary/40 hover:text-primary text-[9px] uppercase tracking-widest transition-colors ml-2">
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center gap-8">
+                    <div class="hidden sm:flex items-center gap-4 text-primary/30">
+                        <button class="text-primary transition-colors"><span
+                                class="material-symbols-outlined text-lg">grid_view</span></button>
+                        <button class="hover:text-primary transition-colors"><span
+                                class="material-symbols-outlined text-lg">view_list</span></button>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] cursor-pointer group btn-transition">
+                        Sort By: Recommended
+                        <span
+                            class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="py-12 px-6 lg:px-16">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+                    <div class="group product-card">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-soft-beige mb-4">
+                            <img alt="Luxury Maroon Abaya"
+                                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu" />
+                            <button
+                                class="absolute top-4 right-4 text-primary bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:text-white btn-transition">
+                                <span class="material-symbols-outlined text-xl">favorite</span>
+                            </button>
+                            <a href="product-detail.html"
+                                class="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2.5 bg-primary text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 btn-transition">
+                                Quick View
+                            </a>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <h3 class="text-sm uppercase tracking-wider text-primary/90 font-sans mb-1">The
+                                        Empress Silk Abaya</h3>
+                                    <p class="text-primary font-bold text-sm">$349.00</p>
+                                </div>
+                                <div class="flex gap-1.5 pb-1">
+                                    <span class="swatch bg-[#6B1C23]"></span>
+                                    <span class="swatch bg-[#1A1A1A]"></span>
+                                    <span class="swatch bg-[#E5E4E2]"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group product-card">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-soft-beige mb-4">
+                            <img alt="Evening Velvet Abaya"
+                                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvjbGfgFiQQhv2QhSBX7JyV6XkVuf-JKfGM3X1CthXYckVqROq9dLvf8gLuArgxPHz-P-oywhx1epp8RlRNqcZkNmaBJZUxe9Md4ckVpMHYVu9AVohyiHzix8ekznxplgVn-fWVC31i2MgnhFsgrcRq9cID_-Lc5a57wlaOVsvYqnpPNChX1zsR7iv9_siH2-5o1PcbpGvmgzhvYOkiOvweDG8L8eYqNsP2K9ymWMn3au3emTIxWA477bT00xw1vkqDpUcbqzyhU-Q" />
+                            <button
+                                class="absolute top-4 right-4 text-primary bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:text-white btn-transition">
+                                <span class="material-symbols-outlined text-xl">favorite</span>
+                            </button>
+                            <a href="product-detail.html"
+                                class="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2.5 bg-primary text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 btn-transition">
+                                Quick View
+                            </a>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <h3 class="text-sm uppercase tracking-wider text-primary/90 font-sans mb-1">Noir
+                                        Velvet Drape</h3>
+                                    <p class="text-primary font-bold text-sm">$299.00</p>
+                                </div>
+                                <div class="flex gap-1.5 pb-1">
+                                    <span class="swatch bg-[#1A1A1A]"></span>
+                                    <span class="swatch bg-[#6B1C23]"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group product-card">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-soft-beige mb-4">
+                            <img alt="Crystal Embroidered Abaya"
+                                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlKSf8MQzAKzp_L5e-bLcWTAdQ5lERWszfNfFavPBBRINhE2pWO-KJPYgu-V5sYcr2IB9vJ4IeJNwopUwf_M_ga7ZOi6GrV5A3Lk5fPT7k7jAHn5iYjkz_PCRK72YvMfgAvRv3dTYtUriRXZ8oJTx_aDM-LNJSVgNFZqctY0K3yZ9pByRZJYnf4Q2v2Iak2CRnGU1Al50Lp-hA1qmIQ_X4Cf5cTo4jCQ7gSGKSjogVLFk8OGRsVeBGxY4qpjIpe_0mpY8eB_oYkPgr" />
+                            <button
+                                class="absolute top-4 right-4 text-primary bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:text-white btn-transition">
+                                <span class="material-symbols-outlined text-xl">favorite</span>
+                            </button>
+                            <a href="product-detail.html"
+                                class="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2.5 bg-primary text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 btn-transition">
+                                Quick View
+                            </a>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <h3 class="text-sm uppercase tracking-wider text-primary/90 font-sans mb-1">Crystal
+                                        Crepe Collection</h3>
+                                    <p class="text-primary font-bold text-sm">$420.00</p>
+                                </div>
+                                <div class="flex gap-1.5 pb-1">
+                                    <span class="swatch bg-[#FAF9F6]"></span>
+                                    <span class="swatch bg-[#6B1C23]"></span>
+                                    <span class="swatch bg-[#1A1A1A]"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group product-card">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-soft-beige mb-4">
+                            <img alt="Minimalist Abaya"
+                                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIDEmim0i-uWoFS79D-aDW2nRuOs4feCqOGuhdSPl7YOyd9jgojw0C61KqZq4UZ44dXcsSGB4PfffBzi3_7iZaZ7n40SaRaTy6_jhmtStYe0MfnZpnK_7br7Gq-tnjMEt1PzXKQIHwVsPVm0pOtclwRfrPqnDsoK0I1nhNuS3Fdjy-xigEUjA1QKxq4oZ9GRESqoonXzQ58vUlhBe4CQ3YTOvWnEEjS2EgasnFYD8NQqe6ssQq6smilIQ6TvHYdGCuAnh-qDFAvtYQ" />
+                            <button
+                                class="absolute top-4 right-4 text-primary bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:text-white btn-transition">
+                                <span class="material-symbols-outlined text-xl">favorite</span>
+                            </button>
+                            <a href="product-detail.html"
+                                class="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2.5 bg-primary text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 btn-transition">
+                                Quick View
+                            </a>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <h3 class="text-sm uppercase tracking-wider text-primary/90 font-sans mb-1">The
+                                        Sculpted Minimalist</h3>
+                                    <p class="text-primary font-bold text-sm">$275.00</p>
+                                </div>
+                                <div class="flex gap-1.5 pb-1">
+                                    <span class="swatch bg-[#3E3D32]"></span>
+                                    <span class="swatch bg-[#FAF9F6]"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group product-card">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-soft-beige mb-4">
+                            <img alt="Royal Kaftan"
+                                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR33BoMfZv7Wns-YlF3KX_AB5L9ZDpeM1burNurhVxE4mxFEAMsUtmZTFc2eAX8uTzTpiyBibqcD6RKTv6tmGoDdvk4wy5UZiWPHfnH6VJMsv3IXAaHVKKQ9-j4BNekwpzqDJhHZhhLVycNpEcdA50556W-H-rnAYa3dPZiwEpMngLCShmTF7w3fJ4oYyBouq-nufJHi1ACkrmjJxYZmmTMe_HeO5qM0m1iqnjzwRl-O8Sa-37OUyRyb7lwISkiTojnG-3UoOHfmKu" />
+                            <button
+                                class="absolute top-4 right-4 text-primary bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:text-white btn-transition">
+                                <span class="material-symbols-outlined text-xl">favorite</span>
+                            </button>
+                            <a href="product-detail.html"
+                                class="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2.5 bg-primary text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 btn-transition">
+                                Quick View
+                            </a>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <h3 class="text-sm uppercase tracking-wider text-primary/90 font-sans mb-1">Royal
+                                        Sapphire Kaftan</h3>
+                                    <p class="text-primary font-bold text-sm">$395.00</p>
+                                </div>
+                                <div class="flex gap-1.5 pb-1">
+                                    <span class="swatch bg-[#1A365D]"></span>
+                                    <span class="swatch bg-[#6B1C23]"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group product-card">
+                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-soft-beige mb-4">
+                            <img alt="Dusk Abaya"
+                                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRMyP_-ZlUBct0pgjTljGmzUajZTeotDpf_Mr823De8wGrJcoseFeDibr0RMDSFuk1o_3CHRgwRMgM7uNP4sLhW7pJP04lLu3C8oA4i-wItJymK53QahyeJZc_ra47Y0LMq2Il-o_FBNdxRqIrmuXghD82a5oh1Qo0ACPMO33viYiuLDGnXfvEPPK8CLkX1n85u0wZT2uwP0MQGhlg23y-s1NiowXiCmWJSUhrKtDUODcx0OqdLnDOprr5c0d49aMnWLGtH18JPHxy" />
+                            <button
+                                class="absolute top-4 right-4 text-primary bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:text-white btn-transition">
+                                <span class="material-symbols-outlined text-xl">favorite</span>
+                            </button>
+                            <button
+                                class="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2.5 bg-primary text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 btn-transition">
+                                Quick View
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <h3 class="text-sm uppercase tracking-wider text-primary/90 font-sans mb-1">Midnight
+                                        Sands Flow</h3>
+                                    <p class="text-primary font-bold text-sm">$310.00</p>
+                                </div>
+                                <div class="flex gap-1.5 pb-1">
+                                    <span class="swatch bg-[#1A1A1A]"></span>
+                                    <span class="swatch bg-[#E2E8F0]"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-20 flex items-center justify-center gap-2">
+                    <button
+                        class="w-9 h-9 flex items-center justify-center text-primary/30 hover:text-primary transition-colors btn-transition">
+                        <span class="material-symbols-outlined text-sm">west</span>
+                    </button>
+                    <div class="flex items-center gap-1">
+                        <button class="w-9 h-9 rounded-full bg-primary text-white text-[11px] font-bold">1</button>
+                        <button
+                            class="w-9 h-9 rounded-full hover:bg-primary/5 text-primary text-[11px] font-medium transition-colors btn-transition">2</button>
+                        <button
+                            class="w-9 h-9 rounded-full hover:bg-primary/5 text-primary text-[11px] font-medium transition-colors btn-transition">3</button>
+                        <span class="text-primary/30 px-2 text-[11px]">...</span>
+                        <button
+                            class="w-9 h-9 rounded-full hover:bg-primary/5 text-primary text-[11px] font-medium transition-colors btn-transition">12</button>
+                    </div>
+                    <button
+                        class="w-9 h-9 flex items-center justify-center text-primary/30 hover:text-primary transition-colors btn-transition">
+                        <span class="material-symbols-outlined text-sm">east</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 px-6 lg:px-16">
+            <div class="max-w-[1440px] mx-auto">
+                <div
+                    class="bg-primary/5 rounded-2xl p-10 md:p-14 text-center border border-primary/5 max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-display text-primary mb-3 italic">Join the Inner Circle</h2>
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-primary/60 mb-8 font-sans">Privileged access
+                        to new collections and events</p>
+                    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                        <input
+                            class="flex-1 bg-white border border-primary/10 rounded px-6 py-3 text-sm focus:ring-1 focus:ring-primary/20 focus:border-primary transition-all font-sans"
+                            placeholder="Your email address" type="email" />
+                        <button
+                            class="bg-primary text-white rounded px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-primary/90 transition-all btn-transition">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-primary text-white py-16 px-6 lg:px-16">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="space-y-6">
+                <a href="index.html">
+                    <img src="assets/images/logo_F.png" alt="LYORE ABAYA Logo" class="h-10 w-auto" />
+                </a>
+                <p class="text-[10px] text-white/50 leading-relaxed font-light uppercase tracking-widest max-w-[200px]">
+                    Redefining modest elegance since 2012. Crafted with precision.
+                </p>
+                <div class="flex gap-4">
+                    <a class="text-white/40 hover:text-white transition-colors" href="#"><span
+                            class="material-symbols-outlined font-light text-lg">camera</span></a>
+                    <a class="text-white/40 hover:text-white transition-colors" href="#"><span
+                            class="material-symbols-outlined font-light text-lg">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] mb-6 text-white/90">Shop</h4>
+                <ul class="space-y-3 text-[11px] font-light text-white/50 uppercase tracking-widest">
+                    <li><a class="hover:text-white transition-colors" href="collections.html">New Arrivals</a></li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Abaya Collection</a></li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Occasion Wear</a></li>
+                    <li><a class="hover:text-white transition-colors" href="contact.html">Bespoke Atelier</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] mb-6 text-white/90">Support</h4>
+                <ul class="space-y-3 text-[11px] font-light text-white/50 uppercase tracking-widest">
+                    <li><a class="hover:text-white transition-colors" href="size-guide.html">Size Guide</a></li>
+                    <li><a class="hover:text-white transition-colors" href="returns-policy.html">Shipping</a></li>
+                    <li><a class="hover:text-white transition-colors" href="returns-policy.html">Return Policy</a></li>
+                    <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] mb-6 text-white/90">Contact</h4>
+                <div class="space-y-3 text-[11px] font-light text-white/50 uppercase tracking-widest">
+                    <p>Flagship: Dubai, UAE</p>
+                    <p>concierge@lyore.com</p>
+                    <p>+971 4 000 0000</p>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] uppercase tracking-[0.2em] text-white/30">
+            <p>© 2024 LYORE ABAYA. Redefining Modesty.</p>
+            <div class="flex gap-8">
+                <a class="hover:text-white transition-colors" href="#">Privacy</a>
+                <a class="hover:text-white transition-colors" href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

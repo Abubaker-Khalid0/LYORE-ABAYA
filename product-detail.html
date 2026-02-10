@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Velvet Noir | LYORE ABAYA</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6B1C23",
+                        "background-light": "#FAF9F6",
+                        "background-dark": "#201213",
+                        "soft-beige": "#F5F3EF",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-item:hover .accordion-content {
+            max-height: 200px;
+        }
+        .thumb-grid {
+            display: flex;
+            gap: 12px;
+        }
+        .thumb-item {
+            width: 80px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans bg-background-light dark:bg-background-dark text-[#1a0f10] dark:text-[#fbf9f9] selection:bg-primary selection:text-white">
+    <header
+        class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 px-6 lg:px-16 py-4">
+        <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-6 flex-1">
+                <button class="flex items-center gap-2 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">menu</span>
+                    <span class="hidden md:block text-sm uppercase tracking-widest">Menu</span>
+                </button>
+                <div class="relative hidden lg:block w-64">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">search</span>
+                    <input
+                        class="w-full bg-soft-beige dark:bg-primary/10 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary placeholder:text-gray-400"
+                        placeholder="Search collection..." type="text" />
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="LYORE ABAYA Logo" class="h-12 md:h-14 w-auto" />
+                </a>
+            </div>
+            <div class="flex items-center justify-end gap-6 flex-1">
+                <nav class="hidden xl:flex items-center gap-8 mr-8">
+                    <a class="text-xs uppercase tracking-widest hover:text-primary transition-colors"
+                        href="collections.html">Collections</a>
+                    <a class="text-xs uppercase tracking-widest hover:text-primary transition-colors"
+                        href="contact.html">Bespoke</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <button class="hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                    <button class="relative hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        <span
+                            class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="pt-32 pb-20">
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+            <nav class="flex items-center gap-2 text-xs uppercase tracking-widest text-gray-400 mb-12">
+                <a class="hover:text-primary" href="index.html">Home</a>
+                <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+                <a class="hover:text-primary" href="collections.html">Abaya Collections</a>
+                <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+                <span class="text-primary">The Velvet Noir</span>
+            </nav>
+            <div class="flex flex-col lg:flex-row gap-12 xl:gap-20">
+                <div class="lg:w-[60%] space-y-8">
+                    <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-soft-beige">
+                        <img alt="The Velvet Noir Primary Image" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlKSf8MQzAKzp_L5e-bLcWTAdQ5lERWszfNfFavPBBRINhE2pWO-KJPYgu-V5sYcr2IB9vJ4IeJNwopUwf_M_ga7ZOi6GrV5A3Lk5fPT7k7jAHn5iYjkz_PCRK72YvMfgAvRv3dTYtUriRXZ8oJTx_aDM-LNJSVgNFZqctY0K3yZ9pByRZJYnf4Q2v2Iak2CRnGU1Al50Lp-hA1qmIQ_X4Cf5cTo4jCQ7gSGKSjogVLFk8OGRsVeBGxY4qpjIpe_0mpY8eB_oYkPgr" />
+                        <button
+                            class="absolute bottom-6 right-6 bg-white/80 backdrop-blur-md p-3 rounded-full hover:bg-white transition-colors">
+                            <span class="material-symbols-outlined">zoom_in</span>
+                        </button>
+                    </div>
+                    <div class="thumb-grid">
+                        <div class="thumb-item border-[3px] border-primary">
+                            <img alt="Main View" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlKSf8MQzAKzp_L5e-bLcWTAdQ5lERWszfNfFavPBBRINhE2pWO-KJPYgu-V5sYcr2IB9vJ4IeJNwopUwf_M_ga7ZOi6GrV5A3Lk5fPT7k7jAHn5iYjkz_PCRK72YvMfgAvRv3dTYtUriRXZ8oJTx_aDM-LNJSVgNFZqctY0K3yZ9pByRZJYnf4Q2v2Iak2CRnGU1Al50Lp-hA1qmIQ_X4Cf5cTo4jCQ7gSGKSjogVLFk8OGRsVeBGxY4qpjIpe_0mpY8eB_oYkPgr" />
+                        </div>
+                        <div class="thumb-item border border-[#E5E7EB]">
+                            <img alt="Fabric Texture" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH5HXSBxFqtRvkavttHiQBcqfk82aiG3bprDqiwRZPWVR6tBAph5V4Trw9Hqz64jj-SX3QF4sHVCHqKGtD6PAIkeU20hqA0q4DcUwNoOZ08XV-3-OgJx-v-NqAZMkWmSHEtCYkZiUqRvh5Xad9V9Y39BhSCxq8WjsyIZ-JlVGh9qgDXZraC6qL_URJ92fDN5nDj5lD_YRB9tfE4m-f63lj2qRj4ZuLFl3RSyUC44tscrwkum2DMtkpQaUOF91E45qApO3uk4J59mn4" />
+                        </div>
+                        <div class="thumb-item border border-[#E5E7EB]">
+                            <img alt="Back Detail" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu" />
+                        </div>
+                        <div class="thumb-item border border-[#E5E7EB]">
+                            <img alt="Side View" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIDEmim0i-uWoFS79D-aDW2nRuOs4feCqOGuhdSPl7YOyd9jgojw0C61KqZq4UZ44dXcsSGB4PfffBzi3_7iZaZ7n40SaRaTy6_jhmtStYe0MfnZpnK_7br7Gq-tnjMEt1PzXKQIHwVsPVm0pOtclwRfrPqnDsoK0I1nhNuS3Fdjy-xigEUjA1QKxq4oZ9GRESqoonXzQ58vUlhBe4CQ3YTOvWnEEjS2EgasnFYD8NQqe6ssQq6smilIQ6TvHYdGCuAnh-qDFAvtYQ" />
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-[40%] space-y-10">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-[0.3em] text-primary/60 font-medium">Bestseller</span>
+                        <h1 class="text-5xl md:text-6xl font-display text-primary italic">The Velvet Noir</h1>
+                        <p class="text-2xl text-primary font-bold tracking-tight">$299.00</p>
+                    </div>
+                    <div class="space-y-6">
+                        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-display">
+                            Exuding timeless sophistication, The Velvet Noir is a masterpiece of modern modesty. Crafted
+                            from our signature premium velvet, this piece features subtle hand-stitched detailing that
+                            catches the light with every movement. Inspired by the quiet strength of the midnight
+                            desert, it offers a silhouette that is both commanding and graceful.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs uppercase tracking-widest font-bold">Select Size</span>
+                            <a class="text-xs uppercase tracking-widest text-primary border-b border-primary/30 hover:border-primary transition-colors"
+                                href="#">Size Guide</a>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button
+                                class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 hover:border-primary hover:text-primary transition-all text-sm">XS</button>
+                            <button
+                                class="w-12 h-12 flex items-center justify-center rounded-full border border-primary text-primary font-bold text-sm bg-primary/5">S</button>
+                            <button
+                                class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 hover:border-primary hover:text-primary transition-all text-sm">M</button>
+                            <button
+                                class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 hover:border-primary hover:text-primary transition-all text-sm">L</button>
+                            <button
+                                class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 hover:border-primary hover:text-primary transition-all text-sm">XL</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4">
+                        <button
+                            class="flex-1 bg-primary text-background-light py-5 rounded-full font-bold uppercase tracking-widest hover:opacity-95 transition-all shadow-xl shadow-primary/20 active:scale-[0.98]">
+                            Add to Bag
+                        </button>
+                        <button
+                            class="w-16 h-16 flex items-center justify-center rounded-full border border-gray-200 hover:bg-soft-beige transition-colors group">
+                            <span
+                                class="material-symbols-outlined group-hover:fill-primary group-hover:text-primary">favorite</span>
+                        </button>
+                    </div>
+                    <div class="border-t border-gray-100 dark:border-white/10 mt-12">
+                        <div class="accordion-item border-b border-gray-100 dark:border-white/10 group">
+                            <button
+                                class="w-full flex justify-between items-center py-6 text-sm uppercase tracking-widest font-bold">
+                                Material &amp; Care
+                                <span
+                                    class="material-symbols-outlined text-gray-400 group-hover:text-primary">expand_more</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="pb-6 text-sm text-gray-600 dark:text-gray-400 leading-relaxed space-y-2">
+                                    <p>• 100% Premium Synthetic Velvet</p>
+                                    <p>• Hand-stitched embroidery in Dubai</p>
+                                    <p>• Dry clean only to maintain fabric luster</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b border-gray-100 dark:border-white/10 group">
+                            <button
+                                class="w-full flex justify-between items-center py-6 text-sm uppercase tracking-widest font-bold">
+                                Shipping &amp; Returns
+                                <span
+                                    class="material-symbols-outlined text-gray-400 group-hover:text-primary">expand_more</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="pb-6 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    <p>Complimentary express shipping on orders over $500. Returns are accepted within
+                                        14 days of receipt for all unworn items in original packaging.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b border-gray-100 dark:border-white/10 group">
+                            <button
+                                class="w-full flex justify-between items-center py-6 text-sm uppercase tracking-widest font-bold">
+                                Sustainability
+                                <span
+                                    class="material-symbols-outlined text-gray-400 group-hover:text-primary">expand_more</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="pb-6 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    <p>Our atelier focuses on low-waste cutting techniques and uses Oeko-Tex certified
+                                        dyes to minimize environmental impact while ensuring garment longevity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="py-20 bg-soft-beige/30 border-t border-gray-100">
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+            <h2 class="text-3xl font-display text-primary italic mb-12">You may also like</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <a href="product-detail.html" class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden bg-white mb-4">
+                        <img alt="Maroon Dusk"
+                            class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu" />
+                    </div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest group-hover:text-primary">Maroon Dusk</h3>
+                    <p class="text-sm text-primary">$275.00</p>
+                </a>
+                <a href="product-detail.html" class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden bg-white mb-4">
+                        <img alt="Silk Sand"
+                            class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkEpVLqr7XSEAwbZ6yxH03sbjOe2SM87gin8Eod0oLc0TW54Wchfk1yi6S7vVBuJmmEXSzSW1zyb9RaiF-aj6DM1rv8x-is5yeEeALTe7x0fHUs76Z_N8lQAtmDUBiYccQrJJxQyofQ92JbWJVjZv3-G2hJDdKc35HotIVGAzDq0Xyy-GfF7N2sieBMu5t345q6pkfBpd_YVZ-VJU0cQ8S31jhF7-rOFQEN6iHJFW_B2VS8TNNEz9ABzJElYFItF4fJFBG3fhBcS7G" />
+                    </div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest group-hover:text-primary">Silk Sand</h3>
+                    <p class="text-sm text-primary">$350.00</p>
+                </a>
+                <a href="product-detail.html" class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden bg-white mb-4">
+                        <img alt="Onyx Diamond"
+                            class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIDEmim0i-uWoFS79D-aDW2nRuOs4feCqOGuhdSPl7YOyd9jgojw0C61KqZq4UZ44dXcsSGB4PfffBzi3_7iZaZ7n40SaRaTy6_jhmtStYe0MfnZpnK_7br7Gq-tnjMEt1PzXKQIHwVsPVm0pOtclwRfrPqnDsoK0I1nhNuS3Fdjy-xigEUjA1QKxq4oZ9GRESqoonXzQ58vUlhBe4CQ3YTOvWnEEjS2EgasnFYD8NQqe6ssQq6smilIQ6TvHYdGCuAnh-qDFAvtYQ" />
+                    </div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest group-hover:text-primary">Onyx Diamond</h3>
+                    <p class="text-sm text-primary">$420.00</p>
+                </a>
+                <a href="product-detail.html" class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-lg overflow-hidden bg-white mb-4">
+                        <img alt="Royal Crepe"
+                            class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR33BoMfZv7Wns-YlF3KX_AB5L9ZDpeM1burNurhVxE4mxFEAMsUtmZTFc2eAX8uTzTpiyBibqcD6RKTv6tmGoDdvk4wy5UZiWPHfnH6VJMsv3IXAaHVKKQ9-j4BNekwpzqDJhHZhhLVycNpEcdA50556W-H-rnAYa3dPZiwEpMngLCShmTF7w3fJ4oYyBouq-nufJHi1ACkrmjJxYZmmTMe_HeO5qM0m1iqnjzwRl-O8Sa-37OUyRyb7lwISkiTojnG-3UoOHfmKu" />
+                    </div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest group-hover:text-primary">Royal Crepe</h3>
+                    <p class="text-sm text-primary">$310.00</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-primary text-white py-20 px-6 lg:px-16">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="space-y-6">
+                <a href="index.html">
+                    <img src="assets/images/logo_F.png" alt="LYORE ABAYA Logo" class="h-10 w-auto" />
+                </a>
+                <p class="text-sm text-white/70 leading-relaxed font-light">
+                    Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
+                    Inspired by the diamond within.
+                </p>
+                <div class="flex gap-4">
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">camera</span></a>
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">chat</span></a>
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">mail</span></a>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Shop</h4>
+                <ul class="space-y-4 text-sm font-light text-white/70">
+                    <li><a class="hover:text-white transition-colors" href="collections.html">New Arrivals</a></li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Abaya Collections</a></li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Kaftans &amp; Dresses</a>
+                    </li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Limited Edition</a></li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Customer Care</h4>
+                <ul class="space-y-4 text-sm font-light text-white/70">
+                    <li><a class="hover:text-white transition-colors" href="contact.html">Bespoke Orders</a></li>
+                    <li><a class="hover:text-white transition-colors" href="returns-policy.html">Shipping &amp;
+                            Returns</a></li>
+                    <li><a class="hover:text-white transition-colors" href="size-guide.html">Size Guide</a></li>
+                    <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Our Atelier</h4>
+                <div class="space-y-4 text-sm font-light text-white/70">
+                    <p>Downtown Dubai, UAE<br />Boulevard Circle 14</p>
+                    <p>Tel: +971 4 123 4567<br />Email: concierge@lyore.com</p>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/50">
+            <p>© 2024 LYORE ABAYA. All Rights Reserved.</p>
+            <div class="flex gap-8">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

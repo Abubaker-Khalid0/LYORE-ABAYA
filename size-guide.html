@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Size Guide | LYORE ABAYA - Luxury Modest Fashion</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6B1C23",
+                        "background-light": "#FAF9F6",
+                        "off-white": "#FAFAFA",
+                        "text-dark": "#333333",
+                        "background-dark": "#201213",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .nav-link {
+                @apply relative text-[16px] tracking-widest uppercase transition-colors duration-300 hover:text-primary font-sans;
+            }
+            .nav-link-active::after {
+                content: '';
+                @apply absolute -bottom-1 left-0 w-full h-[1px] bg-primary;
+            }
+            .glass-nav {
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFA;
+            color: #333333;
+        }
+        header {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02);
+        }
+        .table-container th {
+            @apply bg-[#F2F2F2] text-[#333333] font-medium uppercase text-xs tracking-widest py-6 px-8 border-b border-gray-200;
+        }
+        .table-container td {
+            @apply py-6 px-8 border-b border-gray-100 text-sm text-[#555555];
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-off-white text-text-dark selection:bg-primary selection:text-white">
+    <header
+        class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-primary/5 bg-[#FAF9F6]/95 px-6 lg:px-12 py-5">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-3 items-center">
+            <nav class="hidden lg:flex items-center gap-10">
+                <a class="nav-link" href="collections.html">Collections</a>
+                <a class="nav-link" href="contact.html">Bespoke</a>
+            </nav>
+            <div class="lg:hidden flex items-center">
+                <button class="text-primary">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <a class="flex flex-col items-center" href="index.html">
+                    <img src="assets/images/logo.png" alt="LYORE ABAYA Logo" class="h-12 md:h-16 w-auto" />
+                </a>
+            </div>
+            <div class="flex items-center justify-end gap-10">
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a class="nav-link nav-link-active" href="size-guide.html">Size Guide</a>
+                    <a class="nav-link" href="returns-policy.html">Shipping</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </nav>
+                <div class="flex items-center gap-6">
+                    <button class="hover:text-primary transition-colors flex items-center">
+                        <span class="material-symbols-outlined font-light text-[24px]">search</span>
+                    </button>
+                    <button class="hover:text-primary transition-colors flex items-center">
+                        <span class="material-symbols-outlined font-light text-[24px]">favorite</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="pt-48 pb-32">
+        <div class="max-w-4xl mx-auto px-6">
+            <section class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-light mb-4">Size Guide</h2>
+                <p class="text-lg text-gray-500 font-light italic">Find your perfect fit</p>
+            </section>
+            <section class="mb-12">
+                <div class="overflow-x-auto table-container">
+                    <table class="w-full text-center border-collapse">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Length (cm)</th>
+                                <th>Shoulder (cm)</th>
+                                <th>Bust (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold text-primary">XS</td>
+                                <td>132</td>
+                                <td>38</td>
+                                <td>86</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-primary">S</td>
+                                <td>137</td>
+                                <td>40</td>
+                                <td>92</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-primary">M</td>
+                                <td>142</td>
+                                <td>42</td>
+                                <td>98</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-primary">L</td>
+                                <td>147</td>
+                                <td>44</td>
+                                <td>106</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-primary">XL</td>
+                                <td>152</td>
+                                <td>46</td>
+                                <td>114</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-4 text-[11px] text-gray-400 text-center tracking-wider uppercase">
+                    All measurements are in centimeters (cm).
+                </p>
+            </section>
+            <section class="mb-24 flex justify-center">
+                <div
+                    class="bg-white border border-gray-100 p-6 md:px-10 rounded-2xl flex items-start gap-4 max-w-2xl shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-2xl mt-0.5">lightbulb</span>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        <span class="font-semibold text-primary uppercase text-xs tracking-widest mr-1">Tip:</span>
+                        If you are between two sizes, we recommend choosing the larger size for maximum comfort and a
+                        modest silhouette.
+                    </p>
+                </div>
+            </section>
+            <section class="text-center space-y-8 pt-12 border-t border-gray-100">
+                <h3 class="text-2xl md:text-3xl font-display font-light">Need help choosing your size?</h3>
+                <div class="flex flex-col items-center gap-6">
+                    <a class="bg-primary hover:bg-primary/95 text-white px-12 py-5 rounded-full text-sm font-semibold uppercase tracking-[0.2em] transition-all hover:scale-[1.02] flex items-center gap-3 shadow-lg"
+                        href="#">
+                        <span class="material-symbols-outlined text-xl">chat</span>
+                        Contact us on WhatsApp
+                    </a>
+                    <a class="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1"
+                        href="collections.html">
+                        Back to Shopping
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="bg-primary text-white py-20 px-6 lg:px-16">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 font-sans">
+            <div class="space-y-6">
+                <a href="index.html">
+                    <img src="assets/images/logo_F.png" alt="LYORE ABAYA Logo" class="h-10 w-auto" />
+                </a>
+                <p class="text-sm text-white/70 leading-relaxed font-light">
+                    Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
+                    Inspired by the diamond within.
+                </p>
+                <div class="flex gap-4">
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">camera</span></a>
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">chat</span></a>
+                    <a class="hover:text-background-light transition-colors" href="#"><span
+                            class="material-symbols-outlined">mail</span></a>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Shop</h4>
+                <ul class="space-y-4 text-sm font-light text-white/70">
+                    <li><a class="hover:text-white transition-colors" href="collections.html">New Arrivals</a></li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Abaya Collections</a></li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Kaftans &amp; Dresses</a>
+                    </li>
+                    <li><a class="hover:text-white transition-colors" href="collections.html">Limited Edition</a></li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Customer Care</h4>
+                <ul class="space-y-4 text-sm font-light text-white/70">
+                    <li><a class="hover:text-white transition-colors" href="contact.html">Bespoke Orders</a></li>
+                    <li><a class="hover:text-white transition-colors" href="returns-policy.html">Shipping &amp;
+                            Returns</a></li>
+                    <li><a class="hover:text-white transition-colors" href="size-guide.html">Size Guide</a></li>
+                    <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Our Atelier</h4>
+                <div class="space-y-4 text-sm font-light text-white/70">
+                    <p>Downtown Dubai, UAE<br />Boulevard Circle 14</p>
+                    <p>Tel: +971 4 123 4567<br />Email: concierge@lyore.com</p>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/50 font-sans">
+            <p>© 2024 LYORE ABAYA. All Rights Reserved.</p>
+            <div class="flex gap-8">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
