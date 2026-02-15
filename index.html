@@ -1,272 +1,407 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html class="scroll-smooth" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>LYORE ABAYA | Luxury E-commerce</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LYORE ABAYA | The New Era of Modesty</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet" />
-    <script id="tailwind-config">
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <script>
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#6B1C23",
-                        "background-light": "#FAF9F6",
-                        "background-dark": "#201213",
-                        "soft-beige": "#F5F3EF",
+                        primary: '#6B1C23', // Maroon
+                        background: '#FAF9F6', // Off-white
+                        secondary: '#550000', // Deep Maroon
                     },
                     fontFamily: {
-                        "display": ["Newsreader", "serif"],
-                        "sans": ["Inter", "sans-serif"]
+                        display: ['Newsreader', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
                     },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
-                },
-            },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'fade-in-up-delay-1': 'fadeInUp 1s ease-out 0.3s forwards',
+                        'bg-pan': 'bgPan 20s ease infinite alternate',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        bgPan: {
+                            '0%': { objectPosition: 'center top' },
+                            '100%': { objectPosition: 'center bottom' },
+                        }
+                    }
+                }
+            }
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .nav-link {
-                @apply relative text-[16px] tracking-widest uppercase transition-colors duration-300 hover:text-primary;
-            }
-            .nav-link-active::after {
-                content: '';
-                @apply absolute -bottom-1 left-0 w-full h-[1px] bg-primary;
-            }
-            .glass-nav {
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-            }
-        }
+    <style>
+        /* Specific CSS overrides for scrollbar or critical fixes */
         body {
-            font-family: 'Newsreader', serif;
+            background-color: #FAF9F6;
+            /* Fallback */
+            color: #6B1C23;
+            /* Fallback */
         }
-        header {
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #6B1C23;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
 
-<body
-    class="bg-background-light dark:bg-background-dark text-[#1a0f10] dark:text-[#fbf9f9] selection:bg-primary selection:text-white">
-    <header
-        class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-primary/5 bg-[#FAF9F6]/95 dark:bg-background-dark/95 px-6 lg:px-12 py-5">
-        <div class="max-w-[1440px] mx-auto flex items-center justify-between">
-            <!-- اللوجو على اليسار -->
-            <div class="flex items-center">
-                <a href="index.html">
-                    <img src="assets/images/logo.png" alt="LYORE ABAYA Logo" class="h-12 md:h-14 w-auto" />
-                </a>
-            </div>
+<body class="bg-[#FAF9F6] text-[#6B1C23] font-sans antialiased selection:bg-[#6B1C23] selection:text-white">
 
-            <!-- روابط الصفحات في المنتصف -->
-            <nav class="hidden lg:flex items-center gap-10 font-sans absolute left-1/2 transform -translate-x-1/2">
-                <a class="nav-link nav-link-active" href="index.html">Home</a>
-                <a class="nav-link" href="collections.html">Collections</a>
-                <a class="nav-link" href="size-guide.html">Size Guide</a>
-                <a class="nav-link" href="returns-policy.html">Shipping</a>
-                <a class="nav-link" href="contact.html">Contact</a>
+    <!-- Header -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-md shadow-sm border-b border-[#6B1C23]/5 h-[80px] flex items-center transition-all duration-300">
+        <div class="max-w-7xl mx-auto w-full px-6 lg:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 group hover:opacity-80 transition-opacity">
+                <img src="assets/images/logo.png" alt="LYORE ABAYA" class="h-12 w-auto object-contain">
+            </a>
+
+            <!-- Navigation Desktop -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html"
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold">Home</a>
+                <a href="collections.html"
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Collection</a>
+                <a href="contact.html"
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Contact</a>
             </nav>
 
-            <!-- أيقونة البحث فقط على اليمين -->
-            <div class="flex items-center">
-                <button class="hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined font-light text-[24px]">search</span>
-                </button>
-            </div>
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/971502507859?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%AC%D9%85%D9%88%D8%B9%D8%A9%20LYORE%20ABAYA"
+                    target="_blank"
+                    class="hidden md:flex items-center gap-2 bg-[#550000] text-white px-6 py-2 rounded-full hover:bg-[#6B1C23] transition-colors shadow-md hover:shadow-lg text-sm font-medium tracking-wide">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Order via WhatsApp</span>
+                </a>
 
-            <!-- زر القائمة للموبايل -->
-            <div class="lg:hidden flex items-center">
-                <button class="text-primary">
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-[#6B1C23] hover:opacity-70 transition-opacity">
                     <span class="material-symbols-outlined text-3xl">menu</span>
                 </button>
             </div>
         </div>
     </header>
-    <main class="pt-24">
-        <section class="relative h-[90vh] w-full overflow-hidden">
-            <div class="absolute inset-0 bg-center bg-cover"
-                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvjbGfgFiQQhv2QhSBX7JyV6XkVuf-JKfGM3X1CthXYckVqROq9dLvf8gLuArgxPHz-P-oywhx1epp8RlRNqcZkNmaBJZUxe9Md4ckVpMHYVu9AVohyiHzix8ekznxplgVn-fWVC31i2MgnhFsgrcRq9cID_-Lc5a57wlaOVsvYqnpPNChX1zsR7iv9_siH2-5o1PcbpGvmgzhvYOkiOvweDG8L8eYqNsP2K9ymWMn3au3emTIxWA477bT00xw1vkqDpUcbqzyhU-Q');">
+
+    <!-- Main Content -->
+    <main class="pt-[80px]">
+
+        <!-- Hero Section -->
+        <section
+            class="h-[calc(100vh-80px)] min-h-[600px] relative overflow-hidden flex items-center justify-center text-center px-4 bg-[#FAF9F6]">
+            <!-- Hero Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu"
+                    alt="Maroon luxury abaya model"
+                    class="w-full h-full object-cover object-top animate-bg-pan opacity-90" loading="eager">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-90">
+                </div>
             </div>
-            <div
-                class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent opacity-80">
+
+            <div class="relative z-10 max-w-4xl mx-auto space-y-8 animate-fade-in-up opacity-0"
+                style="animation-fill-mode: forwards;">
+                <h1
+                    class="text-5xl md:text-7xl lg:text-8xl font-display font-medium text-white leading-tight drop-shadow-md">
+                    The New Era of<br><span class="italic">Modesty</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 font-sans font-light tracking-wide max-w-xl mx-auto animate-fade-in-up-delay-1 opacity-0"
+                    style="animation-fill-mode: forwards;">
+                    Discover high-end luxury abayas crafted with elegance and inner strength. Timeless designs for the
+                    modern woman.
+                </p>
+                <div class="pt-4 animate-fade-in-up-delay-1 opacity-0"
+                    style="animation-delay: 0.5s; animation-fill-mode: forwards;">
+                    <a href="collections.html"
+                        class="bg-[#550000] text-white px-8 py-3 rounded-full hover:bg-[#6B1C23] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 font-sans text-sm tracking-widest uppercase inline-block">
+                        Shop New Collection
+                    </a>
+                </div>
             </div>
-            <div class="relative h-full flex flex-col items-center justify-end pb-20 px-6 text-center">
-                <div class="max-w-3xl space-y-6">
-                    <h2 class="text-5xl md:text-8xl font-light italic leading-tight text-white drop-shadow-lg">
-                        The New Era of Modesty
-                    </h2>
-                    <p class="text-lg md:text-xl text-white/90 font-light max-w-xl mx-auto drop-shadow-md">
-                        Discover high-end luxury abayas crafted with elegance and inner strength.
-                    </p>
-                    <div class="pt-8">
-                        <a href="collections.html"
-                            class="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-transform hover:scale-105 active:scale-95 shadow-xl inline-block">
-                            Shop New Collection
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/60">
+                <span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
+            </div>
+        </section>
+
+        <!-- Signature Abayas Section -->
+        <section class="py-24 px-6 lg:px-12 bg-[#FAF9F6]">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <span class="text-xs font-bold tracking-[0.3em] uppercase text-[#6B1C23]/60">Exclusive
+                        Collection</span>
+                    <h2 class="text-4xl md:text-5xl font-display text-[#6B1C23] italic">Signature Abayas</h2>
+                    <div class="w-24 h-[1px] bg-[#6B1C23]/20 mx-auto mt-6"></div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+
+                    <!-- Product 1 -->
+                    <div class="group cursor-pointer transition-all duration-500 hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-lg aspect-[3/4] bg-gray-100">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlKSf8MQzAKzp_L5e-bLcWTAdQ5lERWszfNfFavPBBRINhE2pWO-KJPYgu-V5sYcr2IB9vJ4IeJNwopUwf_M_ga7ZOi6GrV5A3Lk5fPT7k7jAHn5iYjkz_PCRK72YvMfgAvRv3dTYtUriRXZ8oJTx_aDM-LNJSVgNFZqctY0K3yZ9pByRZJYnf4Q2v2Iak2CRnGU1Al50Lp-hA1qmIQ_X4Cf5cTo4jCQ7gSGKSjogVLFk8OGRsVeBGxY4qpjIpe_0mpY8eB_oYkPgr"
+                                alt="The Velvet Noir"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    View</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center space-y-2">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                                The Velvet Noir</h3>
+                            <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$299.00</p>
+                            <a href="product-detail.html"
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="group cursor-pointer transition-all duration-500 hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-lg aspect-[3/4] bg-gray-100">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu"
+                                alt="The Empress Silk Abaya"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    View</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center space-y-2">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                                The Empress Silk Abaya</h3>
+                            <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$349.00</p>
+                            <a href="product-detail.html"
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="group cursor-pointer transition-all duration-500 hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-lg aspect-[3/4] bg-gray-100">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR33BoMfZv7Wns-YlF3KX_AB5L9ZDpeM1burNurhVxE4mxFEAMsUtmZTFc2eAX8uTzTpiyBibqcD6RKTv6tmGoDdvk4wy5UZiWPHfnH6VJMsv3IXAaHVKKQ9-j4BNekwpzqDJhHZhhLVycNpEcdA50556W-H-rnAYa3dPZiwEpMngLCShmTF7w3fJ4oYyBouq-nufJHi1ACkrmjJxYZmmTMe_HeO5qM0m1iqnjzwRl-O8Sa-37OUyRyb7lwISkiTojnG-3UoOHfmKu"
+                                alt="Royal Sapphire Kaftan"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    View</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center space-y-2">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                                Royal Sapphire Kaftan</h3>
+                            <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$395.00</p>
+                            <a href="product-detail.html"
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="group cursor-pointer transition-all duration-500 hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-lg aspect-[3/4] bg-gray-100">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRMyP_-ZlUBct0pgjTljGmzUajZTeotDpf_Mr823De8wGrJcoseFeDibr0RMDSFuk1o_3CHRgwRMgM7uNP4sLhW7pJP04lLu3C8oA4i-wItJymK53QahyeJZc_ra47Y0LMq2Il-o_FBNdxRqIrmuXghD82a5oh1Qo0ACPMO33viYiuLDGnXfvEPPK8CLkX1n85u0wZT2uwP0MQGhlg23y-s1NiowXiCmWJSUhrKtDUODcx0OqdLnDOprr5c0d49aMnWLGtH18JPHxy"
+                                alt="Midnight Sands Flow"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    View</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center space-y-2">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                                Midnight Sands Flow</h3>
+                            <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$310.00</p>
+                            <a href="product-detail.html"
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="group cursor-pointer transition-all duration-500 hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-lg aspect-[3/4] bg-gray-100">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkEpVLqr7XSEAwbZ6yxH03sbjOe2SM87gin8Eod0oLc0TW54Wchfk1yi6S7vVBuJmmEXSzSW1zyb9RaiF-aj6DM1rv8x-is5yeEeALTe7x0fHUs76Z_N8lQAtmDUBiYccQrJJxQyofQ92JbWJVjZv3-G2hJDdKc35HotIVGAzDq0Xyy-GfF7N2sieBMu5t345q6pkfBpd_YVZ-VJU0cQ8S31jhF7-rOFQEN6iHJFW_B2VS8TNNEz9ABzJElYFItF4fJFBG3fhBcS7G"
+                                alt="Silk Sand Kaftan"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    View</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center space-y-2">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                                Silk Sand Kaftan</h3>
+                            <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$350.00</p>
+                            <a href="product-detail.html"
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="group cursor-pointer transition-all duration-500 hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-lg aspect-[3/4] bg-gray-100">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIDEmim0i-uWoFS79D-aDW2nRuOs4feCqOGuhdSPl7YOyd9jgojw0C61KqZq4UZ44dXcsSGB4PfffBzi3_7iZaZ7n40SaRaTy6_jhmtStYe0MfnZpnK_7br7Gq-tnjMEt1PzXKQIHwVsPVm0pOtclwRfrPqnDsoK0I1nhNuS3Fdjy-xigEUjA1QKxq4oZ9GRESqoonXzQ58vUlhBe4CQ3YTOvWnEEjS2EgasnFYD8NQqe6ssQq6smilIQ6TvHYdGCuAnh-qDFAvtYQ"
+                                alt="The Sculpted Minimalist"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <span
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    View</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center space-y-2">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                                The Sculpted Minimalist</h3>
+                            <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$275.00</p>
+                            <a href="product-detail.html"
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                Details</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-20">
+                    <a href="collections.html"
+                        class="inline-flex items-center gap-2 text-[#6B1C23] text-xs font-bold uppercase tracking-[0.2em] border-b border-[#6B1C23] pb-1 hover:opacity-70 transition-opacity">
+                        View All Collections
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#F2F0EF] text-[#6B1C23] py-20 px-6 lg:px-12 border-t border-[#6B1C23]/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+
+            <!-- Brand -->
+            <div class="space-y-6 text-center md:text-left">
+                <a href="index.html" class="inline-flex items-center gap-2 group hover:opacity-80 transition-opacity">
+                    <img src="assets/images/logo.png" alt="LYORE ABAYA" class="h-10 w-auto object-contain">
+                </a>
+                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0">
+                    Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
+                    Inspired by the diamond within.
+                </p>
+            </div>
+
+            <!-- Links -->
+            <div class="flex justify-center md:justify-start gap-16">
+                <div class="space-y-6">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Explore</h4>
+                    <ul class="space-y-4 text-sm font-medium tracking-wide">
+                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Home</a>
+                        </li>
+                        <li><a href="collections.html"
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Collection</a></li>
+                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Size
+                                Guide</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Help</h4>
+                    <ul class="space-y-4 text-sm font-medium tracking-wide">
+                        <li><a href="returns-policy.html"
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Shipping & Return</a></li>
+                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Contact
+                                Us</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Connect -->
+            <div class="space-y-6 text-center md:text-left">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Connect</h4>
+                <div class="space-y-4">
+                    <a href="https://wa.me/971502507859"
+                        class="flex items-center justify-center md:justify-start gap-3 hover:opacity-70 transition-opacity text-sm font-medium text-[#6B1C23]">
+                        <i class="fa-solid fa-phone"></i>
+                        0502507859
+                    </a>
+                    <a href="mailto:care@lyore.com"
+                        class="flex items-center justify-center md:justify-start gap-3 hover:opacity-70 transition-opacity text-sm font-medium text-[#6B1C23]">
+                        <i class="fa-solid fa-envelope"></i>
+                        Lyoreabaya@gmail.com
+                    </a>
+                    <div class="flex items-center justify-center md:justify-start gap-4 pt-2">
+                        <a href="https://instagram.com/Lyore_abaya" target="_blank"
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="Instagram">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://tiktok.com/@Lyore.abaya" target="_blank"
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="TikTok">
+                            <i class="fa-brands fa-tiktok text-xl"></i>
+                        </a>
+                        <a href="https://snapchat.com/add/Lyoreabayas" target="_blank"
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="Snapchat">
+                            <i class="fa-brands fa-snapchat text-xl"></i>
                         </a>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="py-24 px-6 lg:px-40 bg-background-light dark:bg-background-dark">
-            <div class="max-w-[1440px] mx-auto grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h3 class="text-4xl md:text-5xl font-display mb-8 text-primary leading-tight">
-                        The LYORE Philosophy
-                    </h3>
-                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8 font-sans">
-                        The diamond within our logo isn't just an ornament. It represents the resilient, brilliant core
-                        of every woman. Our designs bridge the gap between traditional values and avant-garde fashion,
-                        using only the most exquisite fabrics.
-                    </p>
-                    <div class="grid grid-cols-2 gap-8">
-                        <div class="space-y-2">
-                            <span class="material-symbols-outlined text-primary text-3xl">verified</span>
-                            <h4 class="font-bold text-sm uppercase tracking-wider font-sans">Artisanal</h4>
-                            <p class="text-sm text-gray-500 font-sans">Hand-stitched in Dubai</p>
-                        </div>
-                        <div class="space-y-2">
-                            <span class="material-symbols-outlined text-primary text-3xl">eco</span>
-                            <h4 class="font-bold text-sm uppercase tracking-wider font-sans">Premium</h4>
-                            <p class="text-sm text-gray-500 font-sans">Pure Mulberry Silk</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative aspect-[4/5] rounded-xl overflow-hidden group">
-                    <img alt="Detail of high-end fabric craftsmanship"
-                        class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH5HXSBxFqtRvkavttHiQBcqfk82aiG3bprDqiwRZPWVR6tBAph5V4Trw9Hqz64jj-SX3QF4sHVCHqKGtD6PAIkeU20hqA0q4DcUwNoOZ08XV-3-OgJx-v-NqAZMkWmSHEtCYkZiUqRvh5Xad9V9Y39BhSCxq8WjsyIZ-JlVGh9qgDXZraC6qL_URJ92fDN5nDj5lD_YRB9tfE4m-f63lj2qRj4ZuLFl3RSyUC44tscrwkum2DMtkpQaUOF91E45qApO3uk4J59mn4" />
-                    <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
-                </div>
-            </div>
-        </section>
-        <section class="py-20 px-6 lg:px-16 bg-soft-beige dark:bg-primary/5">
-            <div class="max-w-[1440px] mx-auto">
-                <div class="flex justify-between items-end mb-12">
-                    <h2 class="text-4xl md:text-6xl font-display text-primary italic">New Arrivals</h2>
-                    <a class="text-sm font-bold uppercase tracking-widest border-b-2 border-primary pb-1 hover:text-primary/70 transition-colors font-sans"
-                        href="collections.html">View All</a>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-                    <a href="product-detail.html" class="group cursor-pointer block">
-                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-white mb-6">
-                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlKSf8MQzAKzp_L5e-bLcWTAdQ5lERWszfNfFavPBBRINhE2pWO-KJPYgu-V5sYcr2IB9vJ4IeJNwopUwf_M_ga7ZOi6GrV5A3Lk5fPT7k7jAHn5iYjkz_PCRK72YvMfgAvRv3dTYtUriRXZ8oJTx_aDM-LNJSVgNFZqctY0K3yZ9pByRZJYnf4Q2v2Iak2CRnGU1Al50Lp-hA1qmIQ_X4Cf5cTo4jCQ7gSGKSjogVLFk8OGRsVeBGxY4qpjIpe_0mpY8eB_oYkPgr"
-                                alt="The Velvet Noir" />
-                            <span
-                                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest font-sans">Bestseller</span>
-                        </div>
-                        <div class="space-y-1">
-                            <h3 class="text-xl font-display group-hover:text-primary transition-colors">The Velvet Noir
-                            </h3>
-                            <p class="text-primary font-medium tracking-wide font-sans">$299.00</p>
-                        </div>
-                    </a>
-                    <a href="product-detail.html" class="group cursor-pointer block">
-                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-white mb-6">
-                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkEpVLqr7XSEAwbZ6yxH03sbjOe2SM87gin8Eod0oLc0TW54Wchfk1yi6S7vVBuJmmEXSzSW1zyb9RaiF-aj6DM1rv8x-is5yeEeALTe7x0fHUs76Z_N8lQAtmDUBiYccQrJJxQyofQ92JbWJVjZv3-G2hJDdKc35HotIVGAzDq0Xyy-GfF7N2sieBMu5t345q6pkfBpd_YVZ-VJU0cQ8S31jhF7-rOFQEN6iHJFW_B2VS8TNNEz9ABzJElYFItF4fJFBG3fhBcS7G"
-                                alt="Silk Sand Kaftan" />
-                        </div>
-                        <div class="space-y-1">
-                            <h3 class="text-xl font-display group-hover:text-primary transition-colors">Silk Sand Kaftan
-                            </h3>
-                            <p class="text-primary font-medium tracking-wide font-sans">$350.00</p>
-                        </div>
-                    </a>
-                    <a href="product-detail.html" class="group cursor-pointer block">
-                        <div class="relative aspect-[3/4] rounded-lg overflow-hidden bg-white mb-6">
-                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu"
-                                alt="Maroon Dusk Abaya" />
-                        </div>
-                        <div class="space-y-1">
-                            <h3 class="text-xl font-display group-hover:text-primary transition-colors">Maroon Dusk
-                                Abaya</h3>
-                            <p class="text-primary font-medium tracking-wide font-sans">$275.00</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <section class="py-32 px-6 text-center bg-background-light dark:bg-background-dark">
-            <div class="max-w-2xl mx-auto space-y-8">
-                <h2 class="text-4xl md:text-5xl font-display italic">Join the Inner Circle</h2>
-                <p class="text-gray-500 tracking-wide uppercase text-xs font-sans">Be the first to know about new
-                    collection drops and private events.</p>
-                <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
-                    <input
-                        class="flex-1 rounded-full bg-soft-beige dark:bg-primary/10 border-none px-6 py-4 focus:ring-1 focus:ring-primary font-sans"
-                        placeholder="Your email address" type="email" />
-                    <button
-                        class="bg-primary text-white rounded-full px-10 py-4 text-sm font-bold uppercase tracking-widest hover:opacity-90 transition-opacity font-sans">Subscribe</button>
-                </form>
-            </div>
-        </section>
-    </main>
-    <footer class="bg-primary text-white py-20 px-6 lg:px-16">
-        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 font-sans">
-            <div class="space-y-6">
-                <a href="index.html">
-                    <img src="assets/images/logo_F.png" alt="LYORE ABAYA Logo" class="h-10 w-auto" />
-                </a>
-                <p class="text-sm text-white/70 leading-relaxed font-light">
-                    Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
-                    Inspired by the diamond within.
-                </p>
-                <div class="flex gap-4">
-                    <a class="hover:text-background-light transition-colors" href="#"><span
-                            class="material-symbols-outlined">camera</span></a>
-                    <a class="hover:text-background-light transition-colors" href="#"><span
-                            class="material-symbols-outlined">chat</span></a>
-                    <a class="hover:text-background-light transition-colors" href="#"><span
-                            class="material-symbols-outlined">mail</span></a>
-                </div>
-            </div>
-            <div class="space-y-6">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Shop</h4>
-                <ul class="space-y-4 text-sm font-light text-white/70">
-                    <li><a class="hover:text-white transition-colors" href="collections.html">New Arrivals</a></li>
-                    <li><a class="hover:text-white transition-colors" href="collections.html">Abaya Collections</a></li>
-                    <li><a class="hover:text-white transition-colors" href="collections.html">Kaftans &amp; Dresses</a>
-                    </li>
-                    <li><a class="hover:text-white transition-colors" href="collections.html">Limited Edition</a></li>
-                </ul>
-            </div>
-            <div class="space-y-6">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Customer Care</h4>
-                <ul class="space-y-4 text-sm font-light text-white/70">
-                    <li><a class="hover:text-white transition-colors" href="contact.html">Bespoke Orders</a></li>
-                    <li><a class="hover:text-white transition-colors" href="returns-policy.html">Shipping &amp;
-                            Returns</a></li>
-                    <li><a class="hover:text-white transition-colors" href="size-guide.html">Size Guide</a></li>
-                    <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="space-y-6">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Our Atelier</h4>
-                <div class="space-y-4 text-sm font-light text-white/70">
-                    <p>Downtown Dubai, UAE<br />Boulevard Circle 14</p>
-                    <p>Tel: +971 4 123 4567<br />Email: concierge@lyore.com</p>
-                </div>
-            </div>
+
         </div>
+
         <div
-            class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/50 font-sans">
-            <p>© 2024 LYORE ABAYA. All Rights Reserved.</p>
-            <div class="flex gap-8">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
+            class="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#6B1C23]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] opacity-60">
+            <p>© 2025 LYORE ABAYA. All Rights Reserved.</p>
         </div>
     </footer>
 

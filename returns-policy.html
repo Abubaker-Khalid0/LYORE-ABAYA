@@ -1,296 +1,410 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html class="scroll-smooth" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Shipping &amp; Returns | LYORE ABAYA</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Shipping & Returns | LYORE ABAYA</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <script>
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#8B2635",
-                        "brand-maroon": "#8B2635",
-                        "background-light": "#FFFFFF",
-                        "soft-beige": "#F9F8F6",
-                        "footer-dark": "#2D0A0E",
+                        primary: '#6B1C23', // Maroon
+                        background: '#FAF9F6', // Off-white
+                        secondary: '#550000', // Deep Maroon
                     },
                     fontFamily: {
-                        "display": ["Newsreader", "serif"],
-                        "sans": ["Inter", "sans-serif"],
+                        display: ['Newsreader', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
                     },
-                },
-            },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out 0.2s forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
         }
     </script>
-    <style type="text/tailwindcss">
-        .glass-nav {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
+    <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FFFFFF;
+            background-color: #FAF9F6;
+            color: #6B1C23;
         }
-        .content-section h2 {
-            @apply text-2xl font-semibold text-primary mb-8 flex items-center gap-3;
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #6B1C23;
+            transition: width 0.3s ease;
         }
-        .content-section h3 {
-            @apply text-base font-semibold text-primary mb-6 uppercase tracking-widest;
-        }
-        .policy-list li {
-            @apply flex gap-4 mb-6 items-start text-gray-700 leading-relaxed;
-        }
-        .step-circle {
-            @apply flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shadow-md;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+
+        .nav-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
 
-<body class="font-sans text-[#1a0f10] selection:bg-primary selection:text-white min-h-screen flex flex-col">
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-gray-100 bg-white/90 px-6 lg:px-16 py-4">
-        <div class="max-w-[1440px] mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-6 flex-1">
-                <button class="flex items-center gap-2 hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined">menu</span>
-                    <span class="hidden md:block text-[10px] uppercase tracking-widest font-medium">Menu</span>
-                </button>
-            </div>
-            <div class="flex flex-col items-center">
-                <a href="index.html">
-                    <img src="assets/images/logo.png" alt="LYORE ABAYA Logo" class="h-12 md:h-14 w-auto" />
+<body class="bg-[#FAF9F6] text-[#6B1C23] font-sans antialiased selection:bg-[#6B1C23] selection:text-white">
+
+    <!-- Header (Identical to Homepage) -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-md shadow-sm border-b border-[#6B1C23]/5 h-[80px] flex items-center transition-all duration-300">
+        <div class="max-w-7xl mx-auto w-full px-6 lg:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 group hover:opacity-80 transition-opacity">
+                <img src="assets/images/logo.png" alt="LYORE ABAYA" class="h-12 w-auto object-contain">
+            </a>
+
+            <!-- Navigation Desktop -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html"
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Home</a>
+                <a href="collections.html"
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Collection</a>
+                <a href="size-guide.html"
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Size
+                    Guide</a>
+                <a href="returns-policy.html"
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold">Shipping
+                    & Return</a>
+                <a href="contact.html"
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Contact</a>
+            </nav>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/971502507859?text=Hello%2C%20I%20have%20a%20question%20about%20shipping%20or%20returns"
+                    target="_blank"
+                    class="hidden md:flex items-center gap-2 bg-[#550000] text-white px-6 py-2 rounded-full hover:bg-[#6B1C23] transition-colors shadow-md hover:shadow-lg text-sm font-medium tracking-wide">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Contact Support</span>
                 </a>
-                <nav class="hidden lg:flex items-center gap-8 mt-2">
-                    <a class="text-[10px] uppercase tracking-widest hover:text-primary transition-colors font-medium"
-                        href="collections.html">Collections</a>
-                    <a class="text-[10px] uppercase tracking-widest hover:text-primary transition-colors font-medium"
-                        href="contact.html">Bespoke</a>
-                    <a class="text-[10px] uppercase tracking-widest hover:text-primary transition-colors font-medium"
-                        href="size-guide.html">Size Guide</a>
-                    <a class="text-[10px] uppercase tracking-widest hover:text-primary transition-colors font-medium"
-                        href="contact.html">Contact</a>
-                </nav>
-            </div>
-            <div class="flex items-center justify-end gap-6 flex-1">
-                <div class="flex items-center gap-4">
-                    <button class="hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined">search</span>
-                    </button>
-                    <button class="relative hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined">shopping_bag</span>
-                        <span
-                            class="absolute -top-1 -right-1 bg-primary text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
-                    </button>
-                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-[#6B1C23] hover:opacity-70 transition-opacity"
+                    onclick="toggleMobileMenu()">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
             </div>
         </div>
     </header>
-    <main class="flex-grow pt-40 pb-24">
-        <div class="text-center mb-20 px-6">
-            <h1 class="text-[40px] font-bold text-primary mb-4 leading-tight font-display">Shipping &amp; Returns</h1>
-            <p class="text-gray-400 uppercase tracking-[0.2em] text-[11px] font-medium">Refined policies for our global
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-[#FAF9F6] hidden flex-col items-center justify-center space-y-8 transition-opacity duration-300">
+        <button class="absolute top-6 right-6 text-[#6B1C23] hover:opacity-70 transition-opacity"
+            onclick="toggleMobileMenu()">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <a href="index.html"
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Home</a>
+        <a href="collections.html"
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Collection</a>
+        <a href="size-guide.html"
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Size Guide</a>
+        <a href="returns-policy.html"
+            class="text-2xl font-display text-[#6B1C23] font-bold hover:text-[#550000] transition-colors">Shipping &
+            Return</a>
+        <a href="contact.html"
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Contact</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-[120px] pb-24">
+
+        <!-- Page Title Section -->
+        <div class="max-w-4xl mx-auto px-6 mb-16 text-center animate-fade-in-up">
+            <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#550000] mb-6">Shipping & Returns
+            </h1>
+            <p class="text-[#6B1C23]/80 uppercase tracking-[0.2em] text-xs font-medium">Refined policies for our global
                 clientele</p>
         </div>
-        <div class="max-w-[900px] mx-auto px-6 space-y-24">
-            <section class="content-section">
-                <h2>
-                    <span class="material-symbols-outlined text-3xl">package_2</span>
-                    Shipping Information
-                </h2>
-                <ul class="policy-list">
-                    <li>
-                        <span class="material-symbols-outlined text-primary">check_circle</span>
-                        <span><strong class="text-black font-semibold">Delivery Time:</strong> Orders are processed
-                            within 24-48 hours. Domestic delivery takes 2-3 business days, while international shipping
-                            ranges from 5-7 business days.</span>
-                    </li>
-                    <li>
-                        <span class="material-symbols-outlined text-primary">check_circle</span>
-                        <span><strong class="text-black font-semibold">Shipping Cost:</strong> Complimentary express
-                            shipping on all orders over $500. A flat rate of $25 applies for orders below this
-                            amount.</span>
-                    </li>
-                    <li>
-                        <span class="material-symbols-outlined text-primary">check_circle</span>
-                        <span><strong class="text-black font-semibold">Areas:</strong> We offer premium worldwide
-                            delivery via DHL Express and FedEx to over 150 countries.</span>
-                    </li>
-                    <li>
-                        <span class="material-symbols-outlined text-primary">inventory_2</span>
-                        <span><strong class="text-black font-semibold">Packaging:</strong> Every LYORE piece arrives in
-                            our signature sustainable luxury box, protected by acid-free tissue paper and a silk dust
-                            bag.</span>
-                    </li>
-                    <li>
-                        <span class="material-symbols-outlined text-primary">check_circle</span>
-                        <span><strong class="text-black font-semibold">Tracking:</strong> Once dispatched, a unique
-                            tracking number will be sent via email and SMS for real-time monitoring.</span>
-                    </li>
-                </ul>
+
+        <div class="max-w-5xl mx-auto px-6 space-y-24 animate-fade-in-up" style="animation-delay: 0.2s;">
+            <!-- Shipping Information -->
+            <section class="space-y-8">
+                <div class="flex items-center gap-4 border-b border-[#6B1C23]/10 pb-4">
+                    <span class="material-symbols-outlined text-3xl text-[#550000]">package_2</span>
+                    <h2 class="text-2xl font-display font-semibold text-[#550000]">Shipping Information</h2>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-1">
+                    <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
+                        <span class="material-symbols-outlined text-[#550000] mt-1">check_circle</span>
+                        <div>
+                            <strong class="block text-[#550000] font-bold mb-1">Delivery Time</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed">Orders are processed within 24-48 hours.
+                                Domestic delivery takes 2-3 business days, while international shipping ranges from 5-7
+                                business days.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
+                        <span class="material-symbols-outlined text-[#550000] mt-1">check_circle</span>
+                        <div>
+                            <strong class="block text-[#550000] font-bold mb-1">Shipping Cost</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed">Complimentary express shipping on all orders
+                                over $500. A flat rate of $25 applies for orders below this amount.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
+                        <span class="material-symbols-outlined text-[#550000] mt-1">check_circle</span>
+                        <div>
+                            <strong class="block text-[#550000] font-bold mb-1">Areas</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed">We offer premium worldwide delivery via DHL
+                                Express and FedEx to over 150 countries.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
+                        <span class="material-symbols-outlined text-[#550000] mt-1">inventory_2</span>
+                        <div>
+                            <strong class="block text-[#550000] font-bold mb-1">Packaging</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed">Every LYORE piece arrives in our signature
+                                sustainable luxury box, protected by acid-free tissue paper and a silk dust bag.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
+                        <span class="material-symbols-outlined text-[#550000] mt-1">check_circle</span>
+                        <div>
+                            <strong class="block text-[#550000] font-bold mb-1">Tracking</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed">Once dispatched, a unique tracking number will
+                                be sent via email and SMS for real-time monitoring.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
-            <section class="content-section">
-                <h2>
-                    <span class="material-symbols-outlined text-3xl">replay</span>
-                    Return &amp; Exchange Policy
-                </h2>
-                <div class="mb-12 p-8 bg-soft-beige rounded-2xl border border-gray-100">
-                    <p class="text-gray-700 leading-relaxed">
-                        We accept returns and exchanges within <strong class="text-primary">7 days</strong> of delivery.
+
+            <!-- Return & Exchange Policy -->
+            <section class="space-y-8">
+                <div class="flex items-center gap-4 border-b border-[#6B1C23]/10 pb-4">
+                    <span class="material-symbols-outlined text-3xl text-[#550000]">replay</span>
+                    <h2 class="text-2xl font-display font-semibold text-[#550000]">Return & Exchange Policy</h2>
+                </div>
+
+                <div class="p-8 bg-white rounded-2xl border border-[#6B1C23]/10 text-center shadow-sm">
+                    <p class="text-[#6B1C23] leading-relaxed text-lg">
+                        We accept returns and exchanges within <strong class="text-[#550000]">7 days</strong> of
+                        delivery.
                         To be eligible, items must be unworn, unwashed, and include all original tags with the security
                         seal intact.
                     </p>
                 </div>
-                <h3 class="text-center">How to Initiate a Return</h3>
-                <div class="grid gap-8 max-w-[700px] mx-auto mt-10">
-                    <div class="flex items-center gap-6">
-                        <div class="step-circle">1</div>
-                        <p class="text-gray-700 font-medium">Log in to your account or visit our 'Return Portal' with
-                            your order ID.</p>
-                    </div>
-                    <div class="flex items-center gap-6">
-                        <div class="step-circle">2</div>
-                        <p class="text-gray-700 font-medium">Select the items you wish to return and specify the reason.
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-6">
-                        <div class="step-circle">3</div>
-                        <p class="text-gray-700 font-medium">Our team will review your request and send a pre-paid
-                            shipping label within 24 hours.</p>
-                    </div>
-                    <div class="flex items-center gap-6">
-                        <div class="step-circle">4</div>
-                        <p class="text-gray-700 font-medium">Pack the items securely in the original packaging.</p>
-                    </div>
-                    <div class="flex items-center gap-6">
-                        <div class="step-circle">5</div>
-                        <p class="text-gray-700 font-medium">Drop off at your nearest collection point or schedule a
-                            courier pickup.</p>
+
+                <div class="space-y-8 mt-12">
+                    <h3 class="text-center text-xl font-display text-[#550000]">How to Initiate a Return</h3>
+
+                    <div class="grid gap-6 max-w-2xl mx-auto">
+                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
+                                1</div>
+                            <p class="text-[#6B1C23] font-medium">Log in to your account or contact us via WhatsApp with
+                                your order ID.</p>
+                        </div>
+                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
+                                2</div>
+                            <p class="text-[#6B1C23] font-medium">Select the items you wish to return and specify the
+                                reason.</p>
+                        </div>
+                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
+                                3</div>
+                            <p class="text-[#6B1C23] font-medium">Our team will review your request and send a pre-paid
+                                shipping label within 24 hours.</p>
+                        </div>
+                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
+                                4</div>
+                            <p class="text-[#6B1C23] font-medium">Pack the items securely in the original packaging.</p>
+                        </div>
+                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
+                                5</div>
+                            <p class="text-[#6B1C23] font-medium">Drop off at your nearest collection point or schedule
+                                a courier pickup.</p>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section class="content-section border-t border-gray-100 pt-20">
-                <h2 class="justify-center mb-12">Frequently Asked Questions</h2>
-                <div class="grid md:grid-cols-2 gap-12">
+
+            <!-- FAQ -->
+            <section class="space-y-8 pt-12 border-t border-[#6B1C23]/10">
+                <h2 class="text-2xl font-display font-semibold text-[#550000] text-center mb-12">Frequently Asked
+                    Questions</h2>
+
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
                     <div class="space-y-3">
-                        <h4 class="text-primary font-bold text-sm uppercase tracking-wider">Can I modify my order?</h4>
-                        <p class="text-gray-500 text-[15px] leading-relaxed">As we process orders quickly, modifications
+                        <h4 class="text-[#550000] font-bold text-sm uppercase tracking-wider">Can I modify my order?
+                        </h4>
+                        <p class="text-[#6B1C23]/80 text-sm leading-relaxed">As we process orders quickly, modifications
                             are only possible within 2 hours of placement. Please contact us via WhatsApp immediately.
                         </p>
                     </div>
                     <div class="space-y-3">
-                        <h4 class="text-primary font-bold text-sm uppercase tracking-wider">Are bespoke orders eligible?
-                        </h4>
-                        <p class="text-gray-500 text-[15px] leading-relaxed">Custom-made or bespoke abayas are crafted
+                        <h4 class="text-[#550000] font-bold text-sm uppercase tracking-wider">Are bespoke orders
+                            eligible?</h4>
+                        <p class="text-[#6B1C23]/80 text-sm leading-relaxed">Custom-made or bespoke abayas are crafted
                             specifically to your measurements and are therefore non-refundable unless a manufacturing
                             defect exists.</p>
                     </div>
                     <div class="space-y-3">
-                        <h4 class="text-primary font-bold text-sm uppercase tracking-wider">How long does the refund
+                        <h4 class="text-[#550000] font-bold text-sm uppercase tracking-wider">How long does the refund
                             take?</h4>
-                        <p class="text-gray-500 text-[15px] leading-relaxed">Refunds are processed to the original
+                        <p class="text-[#6B1C23]/80 text-sm leading-relaxed">Refunds are processed to the original
                             payment method within 10-14 business days after we receive and inspect your returned items.
                         </p>
                     </div>
                     <div class="space-y-3">
-                        <h4 class="text-primary font-bold text-sm uppercase tracking-wider">Who pays for return
+                        <h4 class="text-[#550000] font-bold text-sm uppercase tracking-wider">Who pays for return
                             shipping?</h4>
-                        <p class="text-gray-500 text-[15px] leading-relaxed">For domestic orders over $500, return
+                        <p class="text-[#6B1C23]/80 text-sm leading-relaxed">For domestic orders over $500, return
                             shipping is complimentary. For all other orders, a small processing fee is deducted from the
                             refund.</p>
                     </div>
                 </div>
             </section>
-            <section class="text-center bg-white border border-gray-100 p-16 rounded-[2.5rem] shadow-sm space-y-8">
-                <div class="space-y-3">
-                    <h3 class="text-2xl font-bold text-primary normal-case tracking-normal mb-0">Need Help?</h3>
-                    <p class="text-gray-500 max-w-sm mx-auto text-[15px]">Our concierge team is available to assist with
+
+            <!-- Help Box -->
+            <section class="text-center bg-white border border-[#6B1C23]/10 p-12 rounded-2xl shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-2xl font-display font-bold text-[#550000] mb-2">Need Help?</h3>
+                    <p class="text-[#6B1C23]/80 max-w-sm mx-auto text-sm">Our concierge team is available to assist with
                         your shipping or return queries.</p>
                 </div>
-                <div class="pt-4 flex justify-center">
-                    <a class="inline-flex items-center gap-3 bg-primary text-white px-10 py-5 rounded-full text-[13px] font-bold uppercase tracking-widest hover:bg-[#721f2b] transition-all hover:scale-[1.02] shadow-xl"
-                        href="https://wa.me/yournumber">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.394 0 12.03c0 2.122.554 4.197 1.606 6.04L0 24l6.117-1.605a11.837 11.837 0 005.925 1.586h.005c6.635 0 12.03-5.394 12.033-12.031a11.785 11.785 0 00-3.528-8.503z">
-                            </path>
-                        </svg>
-                        Contact us on WhatsApp
+                <div class="pt-2">
+                    <a href="https://wa.me/971502507859"
+                        class="inline-flex items-center gap-3 bg-[#550000] text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#6B1C23] transition-all hover:scale-105 shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        Chat on WhatsApp
                     </a>
                 </div>
             </section>
         </div>
     </main>
-    <footer class="bg-footer-dark text-white py-20 px-6 lg:px-16">
-        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div class="space-y-6">
-                <a href="index.html">
-                    <img src="assets/images/logo_F.png" alt="LYORE ABAYA Logo" class="h-10 w-auto" />
+
+    <!-- Footer (Identical to Homepage) -->
+    <footer class="bg-[#F2F0EF] text-[#6B1C23] py-20 px-6 lg:px-12 border-t border-[#6B1C23]/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+
+            <!-- Brand -->
+            <div class="space-y-6 text-center md:text-left">
+                <a href="index.html" class="inline-flex items-center gap-2 group hover:opacity-80 transition-opacity">
+                    <img src="assets/images/logo.png" alt="LYORE ABAYA" class="h-10 w-auto object-contain">
                 </a>
-                <p class="text-sm text-white/60 leading-relaxed font-light">
+                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0">
                     Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
                     Inspired by the diamond within.
                 </p>
-                <div class="flex gap-4">
-                    <a class="hover:text-primary transition-colors" href="#"><span
-                            class="material-symbols-outlined">camera</span></a>
-                    <a class="hover:text-primary transition-colors" href="#"><span
-                            class="material-symbols-outlined">chat</span></a>
-                    <a class="hover:text-primary transition-colors" href="#"><span
-                            class="material-symbols-outlined">mail</span></a>
+            </div>
+
+            <!-- Links -->
+            <div class="flex justify-center md:justify-start gap-16">
+                <div class="space-y-6">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Explore</h4>
+                    <ul class="space-y-4 text-sm font-medium tracking-wide">
+                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Home</a>
+                        </li>
+                        <li><a href="collections.html"
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Collection</a></li>
+                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Size
+                                Guide</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Help</h4>
+                    <ul class="space-y-4 text-sm font-medium tracking-wide">
+                        <li><a href="returns-policy.html"
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Shipping & Return</a></li>
+                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Contact
+                                Us</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="space-y-6">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Shop</h4>
-                <ul class="space-y-4 text-sm font-light text-white/60">
-                    <li><a class="hover:text-white transition-colors" href="collections.html">New Arrivals</a></li>
-                    <li><a class="hover:text-white transition-colors" href="collections.html">Abaya Collections</a></li>
-                    <li><a class="hover:text-white transition-colors" href="collections.html">Kaftans &amp; Dresses</a>
-                    </li>
-                    <li><a class="hover:text-white transition-colors" href="collections.html">Limited Edition</a></li>
-                </ul>
-            </div>
-            <div class="space-y-6">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Customer Care</h4>
-                <ul class="space-y-4 text-sm font-light text-white/60">
-                    <li><a class="hover:text-white transition-colors" href="contact.html">Bespoke Orders</a></li>
-                    <li><a class="hover:text-white transition-colors" href="returns-policy.html">Shipping &amp;
-                            Returns</a></li>
-                    <li><a class="hover:text-white transition-colors" href="size-guide.html">Size Guide</a></li>
-                    <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="space-y-6">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em]">Our Atelier</h4>
-                <div class="space-y-4 text-sm font-light text-white/60">
-                    <p>Downtown Dubai, UAE<br />Boulevard Circle 14</p>
-                    <p>Tel: +971 4 123 4567<br />Email: concierge@lyore.com</p>
+
+            <!-- Connect -->
+            <div class="space-y-6 text-center md:text-left">
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Connect</h4>
+                <div class="space-y-4">
+                    <a href="https://wa.me/971502507859"
+                        class="flex items-center justify-center md:justify-start gap-3 hover:opacity-70 transition-opacity text-sm font-medium text-[#6B1C23]">
+                        <i class="fa-solid fa-phone"></i>
+                        0502507859
+                    </a>
+                    <a href="mailto:care@lyore.com"
+                        class="flex items-center justify-center md:justify-start gap-3 hover:opacity-70 transition-opacity text-sm font-medium text-[#6B1C23]">
+                        <i class="fa-solid fa-envelope"></i>
+                        Lyoreabaya@gmail.com
+                    </a>
+                    <div class="flex items-center justify-center md:justify-start gap-4 pt-2">
+                        <a href="https://instagram.com/Lyore_abaya" target="_blank"
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="Instagram">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://tiktok.com/@Lyore.abaya" target="_blank"
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="TikTok">
+                            <i class="fa-brands fa-tiktok text-xl"></i>
+                        </a>
+                        <a href="https://snapchat.com/add/Lyoreabayas" target="_blank"
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="Snapchat">
+                            <i class="fa-brands fa-snapchat text-xl"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
+
         </div>
+
         <div
-            class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/40">
-            <p>© 2024 LYORE ABAYA. All Rights Reserved.</p>
-            <div class="flex gap-8">
-                <a class="hover:text-white" href="#">Privacy Policy</a>
-                <a class="hover:text-white" href="#">Terms of Service</a>
-            </div>
+            class="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#6B1C23]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] opacity-60">
+            <p>© 2025 LYORE ABAYA. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        }
+    </script>
 </body>
 
 </html>
