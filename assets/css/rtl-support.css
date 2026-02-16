@@ -1,0 +1,214 @@
+/* RTL/LTR Support CSS for LYORE ABAYA */
+/* This file provides bidirectional layout support for Arabic (RTL) and English (LTR) */
+
+/* ===== BASE RTL ADJUSTMENTS ===== */
+
+/* Navigation link underline animation - adjust for RTL */
+[dir="rtl"] .nav-link::after {
+    left: auto;
+    right: 0;
+}
+
+/* ===== FLEXBOX AND GRID ADJUSTMENTS ===== */
+
+/* Header navigation spacing */
+[dir="rtl"] header nav {
+    direction: rtl;
+}
+
+/* Logo and header items */
+[dir="rtl"] .flex.items-center.gap-2,
+[dir="rtl"] .flex.items-center.gap-4,
+[dir="rtl"] .flex.items-center.gap-8 {
+    direction: rtl;
+}
+
+/* Product grid maintains visual order in RTL */
+[dir="rtl"] .grid {
+    direction: rtl;
+}
+
+/* Footer grid layout */
+[dir="rtl"] footer .grid {
+    direction: rtl;
+}
+
+/* ===== TEXT AND ICON ALIGNMENT ===== */
+
+/* Icons in buttons and links */
+[dir="rtl"] .flex.items-center.gap-2 i,
+[dir="rtl"] .flex.items-center.gap-3 i {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Arrow icons should flip in RTL */
+[dir="rtl"] .material-symbols-outlined {
+    transform: scaleX(-1);
+}
+
+/* Don't flip vertical arrows */
+[dir="rtl"] .animate-bounce .material-symbols-outlined {
+    transform: none;
+}
+
+/* ===== SPACING ADJUSTMENTS ===== */
+
+/* Padding and margin adjustments using logical properties */
+[dir="rtl"] .space-x-4 > * + * {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+[dir="rtl"] .space-x-8 > * + * {
+    margin-left: 0;
+    margin-right: 2rem;
+}
+
+/* ===== FORM ELEMENTS ===== */
+
+/* Form inputs and textareas */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+    text-align: right;
+    direction: rtl;
+}
+
+/* Placeholder text alignment */
+[dir="rtl"] input::placeholder,
+[dir="rtl"] textarea::placeholder {
+    text-align: right;
+}
+
+/* ===== MOBILE MENU ===== */
+
+/* Mobile menu close button positioning */
+[dir="rtl"] #mobile-menu button {
+    right: auto;
+    left: 1.5rem;
+}
+
+/* ===== PRODUCT CARDS ===== */
+
+/* Product card hover effects maintain position */
+[dir="rtl"] .group .absolute.inset-0 {
+    direction: ltr;
+}
+
+/* ===== BORDER ADJUSTMENTS ===== */
+
+/* Border underlines for links */
+[dir="rtl"] .border-b {
+    direction: ltr;
+}
+
+/* ===== ANIMATION ADJUSTMENTS ===== */
+
+/* Ensure animations work correctly in RTL */
+[dir="rtl"] .animate-fade-in-up,
+[dir="rtl"] .animate-fade-in-up-delay-1 {
+    direction: ltr;
+}
+
+/* ===== CONTACT PAGE SPECIFIC ===== */
+
+/* Contact cards maintain proper layout */
+[dir="rtl"] .contact-card {
+    text-align: right;
+}
+
+[dir="rtl"] .contact-card a {
+    direction: rtl;
+}
+
+/* ===== SIZE GUIDE TABLE ===== */
+
+/* Table text alignment */
+[dir="rtl"] table {
+    direction: rtl;
+}
+
+[dir="rtl"] th,
+[dir="rtl"] td {
+    text-align: right;
+}
+
+/* ===== WHATSAPP BUTTON ===== */
+
+/* WhatsApp icon and text spacing */
+[dir="rtl"] .fa-whatsapp {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* ===== SCROLL BEHAVIOR ===== */
+
+/* Maintain smooth scroll in both directions */
+html[dir="rtl"] {
+    scroll-behavior: smooth;
+}
+
+/* ===== TYPOGRAPHY ADJUSTMENTS ===== */
+
+/* Arabic font optimization */
+[dir="rtl"] body {
+    font-feature-settings: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Ensure proper line height for Arabic text */
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] a,
+[dir="rtl"] button {
+    line-height: 1.8;
+}
+
+/* ===== SOCIAL MEDIA ICONS ===== */
+
+/* Social media icon spacing in footer */
+[dir="rtl"] .flex.gap-4 {
+    direction: rtl;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+/* Mobile-specific RTL adjustments */
+@media (max-width: 767px) {
+    [dir="rtl"] .contact-card a {
+        text-align: center;
+    }
+    
+    [dir="rtl"] #mobile-menu {
+        text-align: center;
+    }
+}
+
+/* ===== PRESERVE DESIGN INTEGRITY ===== */
+
+/* Ensure colors remain consistent */
+[dir="rtl"] * {
+    /* Colors are inherited and don't need adjustment */
+}
+
+/* Ensure visual hierarchy is maintained */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+    /* Typography hierarchy preserved */
+}
+
+/* ===== LANGUAGE SWITCHER ===== */
+
+/* Language switcher button positioning */
+[dir="rtl"] #language-switcher-container {
+    direction: ltr;
+}
+
+[dir="rtl"] #language-switcher-container button {
+    direction: ltr;
+}

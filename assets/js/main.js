@@ -2,6 +2,10 @@
 // =============================
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize translation system FIRST to ensure translations apply before page becomes visible
+    // This must happen before any other initialization to prevent content flashing
+    TranslationManager.init();
+
     console.log('LYORE ABAYA Loaded');
 
     // Mobile menu toggle (placeholder for future functionality)

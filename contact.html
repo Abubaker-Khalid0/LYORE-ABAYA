@@ -17,6 +17,16 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- RTL/LTR Support CSS -->
+    <link rel="stylesheet" href="assets/css/rtl-support.css" />
+
+    <!-- Translation System Scripts -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/storage-manager.js"></script>
+    <script src="assets/js/translation-engine.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
+    <script src="assets/js/translation-manager.js"></script>
 
     <script>
         tailwind.config = {
@@ -74,10 +84,62 @@
             box-shadow: 0 10px 30px rgba(107, 28, 35, 0.1);
             border-color: #6B1C23;
         }
+
+        /* ===== MOBILE-ONLY IMPROVEMENTS ===== */
+        @media (max-width: 767px) {
+
+            /* Prevent horizontal scroll */
+            body {
+                overflow-x: hidden;
+            }
+
+            /* Card CTA links: full-width tap targets */
+            .contact-card a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 48px;
+                padding: 12px 16px;
+                border: 1.5px solid #550000;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                touch-action: manipulation;
+            }
+
+            /* Social media icon circles */
+            .social-icon-circle {
+                width: 56px !important;
+                height: 56px !important;
+            }
+
+            /* Footer link tap targets */
+            footer a {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            footer li {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            /* Disable card hover on touch */
+            .contact-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .contact-card:active {
+                transform: scale(0.98);
+            }
+        }
     </style>
 </head>
 
-<body class="bg-[#FAF9F6] text-[#6B1C23] font-sans antialiased selection:bg-[#6B1C23] selection:text-white">
+<body
+    class="bg-[#FAF9F6] text-[#6B1C23] font-sans antialiased selection:bg-[#6B1C23] selection:text-white overflow-x-hidden">
 
     <!-- Header (Identical to Homepage) -->
     <header
@@ -91,25 +153,28 @@
             <!-- Navigation Desktop -->
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="index.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Home</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.home">Home</a>
                 <a href="collections.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Collection</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.collection">Collection</a>
                 <a href="size-guide.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Size
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.sizeGuide">Size
                     Guide</a>
                 <a href="returns-policy.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Shipping
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.shippingReturn">Shipping
                     & Return</a>
                 <a href="contact.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold">Contact</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold" data-i18n="nav.contact">Contact</a>
             </nav>
 
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center gap-4">
+                <!-- Language Switcher Container -->
+                <div id="language-switcher-container"></div>
+                
                 <a href="https://wa.me/971502507859" target="_blank"
                     class="hidden md:flex items-center gap-2 bg-[#550000] text-white px-6 py-2 rounded-full hover:bg-[#6B1C23] transition-colors shadow-md hover:shadow-lg text-sm font-medium tracking-wide">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Chat Now</span>
+                    <span data-i18n="cta.chatNow">Chat Now</span>
                 </a>
 
                 <!-- Mobile Menu Button -->
@@ -129,125 +194,137 @@
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
         <a href="index.html"
-            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Home</a>
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.home">Home</a>
         <a href="collections.html"
-            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Collection</a>
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.collection">Collection</a>
         <a href="size-guide.html"
-            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Size Guide</a>
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.sizeGuide">Size Guide</a>
         <a href="returns-policy.html"
-            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Shipping & Return</a>
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.shippingReturn">Shipping & Return</a>
         <a href="contact.html"
-            class="text-2xl font-display text-[#6B1C23] font-bold hover:text-[#550000] transition-colors">Contact</a>
+            class="text-2xl font-display text-[#6B1C23] font-bold hover:text-[#550000] transition-colors" data-i18n="nav.contact">Contact</a>
     </div>
 
     <!-- Main Content -->
-    <main class="pt-[140px] pb-24">
+    <main class="pt-[120px] md:pt-[140px] pb-24">
 
         <!-- Page Title Section -->
-        <div class="max-w-4xl mx-auto px-6 mb-16 text-center animate-fade-in-up">
-            <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#550000] mb-6 italic">We’re Here to
+        <div class="max-w-4xl mx-auto px-5 sm:px-6 mb-10 md:mb-16 text-center animate-fade-in-up">
+            <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#550000] mb-6 italic" data-i18n="contact.pageTitle">We’re Here to
                 Help</h1>
-            <p class="text-[#6B1C23]/80 font-sans tracking-wide max-w-xl mx-auto text-lg leading-relaxed">
+            <p class="text-[#6B1C23]/80 font-sans tracking-wide max-w-xl mx-auto text-base md:text-lg leading-relaxed" data-i18n="contact.pageDescription">
                 Our concierge team is available to assist you with order inquiries, sizing advice, and bespoke requests.
             </p>
         </div>
 
-        <div class="max-w-6xl mx-auto px-6 mb-24 animate-fade-in-up" style="animation-delay: 0.2s;">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="max-w-6xl mx-auto px-5 sm:px-6 mb-16 md:mb-24 animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
                 <!-- WhatsApp Card -->
-                <div class="contact-card bg-white p-10 rounded-2xl text-center border border-[#6B1C23]/10">
-                    <div class="w-16 h-16 bg-[#F2F0EF] rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa-brands fa-whatsapp text-3xl text-[#550000]"></i>
+                <div class="contact-card bg-white p-7 md:p-10 rounded-2xl text-center border border-[#6B1C23]/10">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 bg-[#F2F0EF] rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                        <i class="fa-brands fa-whatsapp text-2xl md:text-3xl text-[#550000]"></i>
                     </div>
-                    <h3 class="font-sans font-bold uppercase tracking-widest text-sm mb-3 text-[#550000]">WhatsApp</h3>
-                    <p class="text-2xl font-display text-[#6B1C23] mb-2">+971 50 250 7859</p>
-                    <p class="text-xs font-sans text-[#6B1C23]/60 italic tracking-wide">Fastest response</p>
+                    <h3 class="font-sans font-bold uppercase tracking-widest text-sm mb-2 md:mb-3 text-[#550000]" data-i18n="contact.whatsappTitle">
+                        WhatsApp</h3>
+                    <p class="text-xl md:text-2xl font-display text-[#6B1C23] mb-1 md:mb-2">+971 50 250 7859</p>
+                    <p class="text-sm md:text-xs font-sans text-[#6B1C23]/60 italic tracking-wide" data-i18n="contact.whatsappSubtitle">Fastest response</p>
                     <a href="https://wa.me/971502507859" target="_blank"
-                        class="block mt-6 text-sm font-bold text-[#550000] hover:underline decoration-1 underline-offset-4 uppercase tracking-widest">Chat
+                        class="block mt-5 md:mt-6 text-sm font-bold text-[#550000] hover:underline decoration-1 underline-offset-4 uppercase tracking-widest touch-manipulation" data-i18n="contact.whatsappCta">Chat
                         Now</a>
                 </div>
 
                 <!-- Phone Card -->
-                <div class="contact-card bg-white p-10 rounded-2xl text-center border border-[#6B1C23]/10">
-                    <div class="w-16 h-16 bg-[#F2F0EF] rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="material-symbols-outlined text-3xl text-[#550000]">call</span>
+                <div class="contact-card bg-white p-7 md:p-10 rounded-2xl text-center border border-[#6B1C23]/10">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 bg-[#F2F0EF] rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                        <span class="material-symbols-outlined text-2xl md:text-3xl text-[#550000]">call</span>
                     </div>
-                    <h3 class="font-sans font-bold uppercase tracking-widest text-sm mb-3 text-[#550000]">Phone</h3>
-                    <p class="text-2xl font-display text-[#6B1C23] mb-2">+971 50 250 7859</p>
-                    <p class="text-xs font-sans text-[#6B1C23]/60 tracking-wide">Mon - Sat, 9am - 6pm</p>
+                    <h3 class="font-sans font-bold uppercase tracking-widest text-sm mb-2 md:mb-3 text-[#550000]" data-i18n="contact.phoneTitle">Phone
+                    </h3>
+                    <p class="text-xl md:text-2xl font-display text-[#6B1C23] mb-1 md:mb-2">+971 50 250 7859</p>
+                    <p class="text-sm md:text-xs font-sans text-[#6B1C23]/60 tracking-wide" data-i18n="contact.phoneHours">Mon - Sat, 9am - 6pm</p>
                     <a href="tel:+971502507859"
-                        class="block mt-6 text-sm font-bold text-[#550000] hover:underline decoration-1 underline-offset-4 uppercase tracking-widest">Call
+                        class="block mt-5 md:mt-6 text-sm font-bold text-[#550000] hover:underline decoration-1 underline-offset-4 uppercase tracking-widest touch-manipulation" data-i18n="contact.phoneCta">Call
                         Us</a>
                 </div>
 
                 <!-- Email Card -->
-                <div class="contact-card bg-white p-10 rounded-2xl text-center border border-[#6B1C23]/10">
-                    <div class="w-16 h-16 bg-[#F2F0EF] rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="material-symbols-outlined text-3xl text-[#550000]">mail</span>
+                <div class="contact-card bg-white p-7 md:p-10 rounded-2xl text-center border border-[#6B1C23]/10">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 bg-[#F2F0EF] rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                        <span class="material-symbols-outlined text-2xl md:text-3xl text-[#550000]">mail</span>
                     </div>
-                    <h3 class="font-sans font-bold uppercase tracking-widest text-sm mb-3 text-[#550000]">Email</h3>
-                    <p class="text-xl font-display text-[#6B1C23] mb-2 break-all">care@lyore.com</p>
-                    <p class="text-xs font-sans text-[#6B1C23]/60 tracking-wide">Customer support</p>
+                    <h3 class="font-sans font-bold uppercase tracking-widest text-sm mb-2 md:mb-3 text-[#550000]" data-i18n="contact.emailTitle">Email
+                    </h3>
+                    <p class="text-lg md:text-xl font-display text-[#6B1C23] mb-1 md:mb-2 break-all">care@lyore.com</p>
+                    <p class="text-sm md:text-xs font-sans text-[#6B1C23]/60 tracking-wide" data-i18n="contact.emailSubtitle">Customer support</p>
                     <a href="mailto:care@lyore.com"
-                        class="block mt-6 text-sm font-bold text-[#550000] hover:underline decoration-1 underline-offset-4 uppercase tracking-widest">Email
+                        class="block mt-5 md:mt-6 text-sm font-bold text-[#550000] hover:underline decoration-1 underline-offset-4 uppercase tracking-widest touch-manipulation" data-i18n="contact.emailCta">Email
                         Us</a>
                 </div>
             </div>
         </div>
 
         <!-- Social Media Section -->
-        <section class="max-w-6xl mx-auto px-6 py-12 mb-12 border-t border-[#6B1C23]/10 animate-fade-in-up"
+        <section
+            class="max-w-6xl mx-auto px-5 sm:px-6 py-10 md:py-12 mb-8 md:mb-12 border-t border-[#6B1C23]/10 animate-fade-in-up"
             style="animation-delay: 0.4s;">
-            <div class="text-center mb-10 relative">
-                <h3 class="text-3xl md:text-4xl font-display italic text-[#550000]">Find Us on Social</h3>
+            <div class="text-center mb-8 md:mb-10 relative">
+                <h3 class="text-2xl md:text-4xl font-display italic text-[#550000]" data-i18n="contact.socialTitle">Find Us on Social</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-xl mx-auto">
+            <div class="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-6 max-w-xl mx-auto">
                 <!-- TikTok -->
-                <a href="https://tiktok.com/@Lyore.abaya" target="_blank" class="group flex flex-col items-center">
+                <a href="https://tiktok.com/@Lyore.abaya" target="_blank"
+                    class="group flex flex-col items-center touch-manipulation">
                     <div
-                        class="relative w-20 h-20 flex items-center justify-center rounded-full bg-white border border-[#6B1C23]/10 transition-all duration-500 group-hover:bg-[#550000] group-hover:border-[#550000] mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-[#550000]/20">
+                        class="social-icon-circle relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full bg-white border border-[#6B1C23]/10 transition-all duration-500 group-hover:bg-[#550000] group-hover:border-[#550000] mb-3 md:mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-[#550000]/20">
                         <i
-                            class="fa-brands fa-tiktok text-2xl text-[#6B1C23] transition-colors duration-500 group-hover:text-white"></i>
+                            class="fa-brands fa-tiktok text-xl md:text-2xl text-[#6B1C23] transition-colors duration-500 group-hover:text-white"></i>
                     </div>
                     <span
-                        class="font-display italic text-xl text-[#550000] group-hover:text-[#6B1C23] transition-colors duration-300">Lyore.abaya</span>
+                        class="font-display italic text-base md:text-xl text-[#550000] group-hover:text-[#6B1C23] transition-colors duration-300">Lyore.abaya</span>
                     <span
-                        class="text-[10px] uppercase tracking-[0.3em] text-[#6B1C23]/60 mt-1 font-sans font-bold">TikTok</span>
+                        class="text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#6B1C23]/60 mt-1 font-sans font-bold">TikTok</span>
                 </a>
 
                 <!-- Instagram -->
-                <a href="https://instagram.com/Lyore_abaya" target="_blank" class="group flex flex-col items-center">
+                <a href="https://instagram.com/Lyore_abaya" target="_blank"
+                    class="group flex flex-col items-center touch-manipulation">
                     <div
-                        class="relative w-20 h-20 flex items-center justify-center rounded-full bg-white border border-[#6B1C23]/10 transition-all duration-500 group-hover:bg-[#550000] group-hover:border-[#550000] mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-[#550000]/20">
+                        class="social-icon-circle relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full bg-white border border-[#6B1C23]/10 transition-all duration-500 group-hover:bg-[#550000] group-hover:border-[#550000] mb-3 md:mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-[#550000]/20">
                         <i
-                            class="fa-brands fa-instagram text-2xl text-[#6B1C23] transition-colors duration-500 group-hover:text-white"></i>
+                            class="fa-brands fa-instagram text-xl md:text-2xl text-[#6B1C23] transition-colors duration-500 group-hover:text-white"></i>
                     </div>
                     <span
-                        class="font-display italic text-xl text-[#550000] group-hover:text-[#6B1C23] transition-colors duration-300">Lyore_abaya</span>
+                        class="font-display italic text-base md:text-xl text-[#550000] group-hover:text-[#6B1C23] transition-colors duration-300">Lyore_abaya</span>
                     <span
-                        class="text-[10px] uppercase tracking-[0.3em] text-[#6B1C23]/60 mt-1 font-sans font-bold">Instagram</span>
+                        class="text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#6B1C23]/60 mt-1 font-sans font-bold">Instagram</span>
                 </a>
 
                 <!-- Snapchat -->
-                <a href="https://snapchat.com/add/Lyoreabayas" target="_blank" class="group flex flex-col items-center">
+                <a href="https://snapchat.com/add/Lyoreabayas" target="_blank"
+                    class="group flex flex-col items-center touch-manipulation">
                     <div
-                        class="relative w-20 h-20 flex items-center justify-center rounded-full bg-white border border-[#6B1C23]/10 transition-all duration-500 group-hover:bg-[#550000] group-hover:border-[#550000] mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-[#550000]/20">
+                        class="social-icon-circle relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full bg-white border border-[#6B1C23]/10 transition-all duration-500 group-hover:bg-[#550000] group-hover:border-[#550000] mb-3 md:mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-[#550000]/20">
                         <i
-                            class="fa-brands fa-snapchat text-2xl text-[#6B1C23] transition-colors duration-500 group-hover:text-white"></i>
+                            class="fa-brands fa-snapchat text-xl md:text-2xl text-[#6B1C23] transition-colors duration-500 group-hover:text-white"></i>
                     </div>
                     <span
-                        class="font-display italic text-xl text-[#550000] group-hover:text-[#6B1C23] transition-colors duration-300">Lyoreabayas</span>
+                        class="font-display italic text-base md:text-xl text-[#550000] group-hover:text-[#6B1C23] transition-colors duration-300">Lyoreabayas</span>
                     <span
-                        class="text-[10px] uppercase tracking-[0.3em] text-[#6B1C23]/60 mt-1 font-sans font-bold">Snapchat</span>
+                        class="text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#6B1C23]/60 mt-1 font-sans font-bold">Snapchat</span>
                 </a>
             </div>
 
             <!-- Note at bottom -->
-            <div class="text-center mt-12">
-                <p class="text-[11px] text-[#6B1C23]/60 font-sans tracking-[0.2em] leading-relaxed uppercase">
+            <div class="text-center mt-8 md:mt-12">
+                <p
+                    class="text-xs md:text-[11px] text-[#6B1C23]/60 font-sans tracking-[0.15em] md:tracking-[0.2em] leading-relaxed uppercase" data-i18n="contact.socialNote">
                     We usually reply within 24 hours.<br>
-                    <span class="italic text-[#550000] normal-case tracking-normal text-sm mt-2 block">For bespoke
+                    <span class="italic text-[#550000] normal-case tracking-normal text-sm md:text-sm mt-2 block" data-i18n="contact.socialBespokeNote">For
+                        bespoke
                         inquiries, please contact us via WhatsApp.</span>
                 </p>
             </div>
@@ -328,7 +405,7 @@
 
         <div
             class="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#6B1C23]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] opacity-60">
-            <p>© 2025 LYORE ABAYA. All Rights Reserved.</p>
+            <p data-i18n="footer.copyright">© 2025 LYORE ABAYA. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -346,6 +423,9 @@
             }
         }
     </script>
+
+    <!-- Main JS - Initialize translation system and other functionality -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

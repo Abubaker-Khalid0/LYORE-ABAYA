@@ -23,6 +23,16 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- RTL/LTR Support CSS -->
+    <link rel="stylesheet" href="assets/css/rtl-support.css" />
+
+    <!-- Translation System Scripts -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/storage-manager.js"></script>
+    <script src="assets/js/translation-engine.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
+    <script src="assets/js/translation-manager.js"></script>
 
     <!-- Tailwind Config -->
     <script>
@@ -59,27 +69,30 @@
             <!-- Navigation Desktop -->
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="index.html"
-                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative">Home</a>
+                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative" data-i18n="nav.home">Home</a>
                 <a href="collections.html"
-                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative">Collection</a>
+                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative" data-i18n="nav.collection">Collection</a>
                 <a href="size-guide.html"
-                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative font-bold">Size
+                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative font-bold" data-i18n="nav.sizeGuide">Size
                     Guide</a>
                 <a href="returns-policy.html"
-                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative">Shipping
+                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative" data-i18n="nav.shippingReturn">Shipping
                     & Return</a>
                 <a href="contact.html"
-                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative">Contact</a>
+                    class="text-[#550000] font-sans text-sm tracking-widest uppercase hover:underline transition-opacity relative" data-i18n="nav.contact">Contact</a>
             </nav>
 
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center gap-4">
+                <!-- Language Switcher Container -->
+                <div id="language-switcher-container"></div>
+                
                 <a href="https://wa.me/971502507859?text=Hello%2C%20I%20need%20help%20choosing%20my%20abaya%20size."
                     target="_blank"
                     class="hidden md:flex items-center gap-2 bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors shadow-md hover:shadow-lg text-sm tracking-wide group">
                     <i
                         class="fa-brands fa-whatsapp text-lg group-hover:scale-110 transition-transform duration-300"></i>
-                    <span>Chat on WhatsApp</span>
+                    <span data-i18n="cta.chatWhatsApp">Chat on WhatsApp</span>
                 </a>
 
                 <!-- Mobile Menu Button -->
@@ -98,14 +111,14 @@
             onclick="toggleMobileMenu()" aria-label="Close mobile menu">
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
-        <a href="index.html" class="text-2xl font-serif text-[#550000] hover:underline transition-colors">Home</a>
+        <a href="index.html" class="text-2xl font-serif text-[#550000] hover:underline transition-colors" data-i18n="nav.home">Home</a>
         <a href="collections.html"
-            class="text-2xl font-serif text-[#550000] hover:underline transition-colors">Collection</a>
+            class="text-2xl font-serif text-[#550000] hover:underline transition-colors" data-i18n="nav.collection">Collection</a>
         <a href="size-guide.html"
-            class="text-2xl font-serif text-[#550000] font-bold hover:underline transition-colors">Size Guide</a>
+            class="text-2xl font-serif text-[#550000] font-bold hover:underline transition-colors" data-i18n="nav.sizeGuide">Size Guide</a>
         <a href="returns-policy.html"
-            class="text-2xl font-serif text-[#550000] hover:underline transition-colors">Shipping & Return</a>
-        <a href="contact.html" class="text-2xl font-serif text-[#550000] hover:underline transition-colors">Contact</a>
+            class="text-2xl font-serif text-[#550000] hover:underline transition-colors" data-i18n="nav.shippingReturn">Shipping & Return</a>
+        <a href="contact.html" class="text-2xl font-serif text-[#550000] hover:underline transition-colors" data-i18n="nav.contact">Contact</a>
     </div>
 
     <!-- MAIN CONTENT -->
@@ -114,11 +127,11 @@
         <!-- Page Title Section -->
         <section class="max-w-7xl mx-auto px-6 mt-12 mb-16 text-center animate-fade-in opacity-0"
             style="animation: fadeIn 0.8s ease-out forwards;">
-            <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#550000] mb-4">
+            <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#550000] mb-4" data-i18n="sizeGuide.pageTitle">
                 Size Guide
             </h1>
             <p class="font-serif text-xl md:text-2xl text-[#550000] italic font-light animate-fade-in-delay-1 opacity-0"
-                style="animation: fadeIn 0.8s ease-out 0.2s forwards;">
+                style="animation: fadeIn 0.8s ease-out 0.2s forwards;" data-i18n="sizeGuide.pageSubtitle">
                 Find your perfect fit
             </p>
         </section>
@@ -131,57 +144,62 @@
                     <thead>
                         <tr class="bg-[#F2F0EF] border-b-2 border-[#550000]/10">
                             <th scope="col"
-                                class="px-4 py-3 text-left text-xs md:text-sm font-bold text-[#550000] font-sans uppercase tracking-wider">
+                                class="px-2 py-4 md:px-4 text-left text-sm md:text-base font-bold text-[#550000] font-sans uppercase tracking-wider" data-i18n="sizeGuide.sizeColumn">
                                 Size</th>
                             <th scope="col"
-                                class="px-4 py-3 text-left text-xs md:text-sm font-bold text-[#550000] font-sans uppercase tracking-wider">
-                                Length (cm)</th>
+                                class="px-2 py-4 md:px-4 text-left text-sm md:text-base font-bold text-[#550000] font-sans uppercase tracking-wider" data-i18n="sizeGuide.lengthColumn">
+                                Length <span class="hidden md:inline">(cm)</span></th>
                             <th scope="col"
-                                class="px-4 py-3 text-left text-xs md:text-sm font-bold text-[#550000] font-sans uppercase tracking-wider">
-                                Shoulder (cm)</th>
+                                class="px-2 py-4 md:px-4 text-left text-sm md:text-base font-bold text-[#550000] font-sans uppercase tracking-wider" data-i18n="sizeGuide.shoulderColumn">
+                                Shoulder <span class="hidden md:inline">(cm)</span></th>
                             <th scope="col"
-                                class="px-4 py-3 text-left text-xs md:text-sm font-bold text-[#550000] font-sans uppercase tracking-wider">
-                                Bust (cm)</th>
+                                class="px-2 py-4 md:px-4 text-left text-sm md:text-base font-bold text-[#550000] font-sans uppercase tracking-wider" data-i18n="sizeGuide.bustColumn">
+                                Bust <span class="hidden md:inline">(cm)</span></th>
                         </tr>
                     </thead>
                     <!-- IMPORTANT: These are placeholder measurements for demonstration. Replace with actual LYORE abaya measurements before going live. -->
                     <tbody>
                         <tr class="hover:bg-[#FAF9F6] transition-colors duration-200 border-b border-[#550000]/10">
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">XS</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">132</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">38</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">86</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans font-medium">XS
+                            </td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">132</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">38</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">86</td>
                         </tr>
                         <tr class="hover:bg-[#FAF9F6] transition-colors duration-200 border-b border-[#550000]/10">
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">S</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">137</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">40</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">92</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans font-medium">S
+                            </td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">137</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">40</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">92</td>
                         </tr>
                         <tr class="hover:bg-[#FAF9F6] transition-colors duration-200 border-b border-[#550000]/10">
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">M</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">142</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">42</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">98</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans font-medium">M
+                            </td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">142</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">42</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">98</td>
                         </tr>
                         <tr class="hover:bg-[#FAF9F6] transition-colors duration-200 border-b border-[#550000]/10">
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">L</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">147</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">44</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">106</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans font-medium">L
+                            </td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">147</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">44</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">106</td>
                         </tr>
                         <tr class="hover:bg-[#FAF9F6] transition-colors duration-200 border-b border-[#550000]/10">
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">XL</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">152</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">46</td>
-                            <td class="px-4 py-3 text-xs md:text-sm text-[#550000] font-sans">114</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans font-medium">XL
+                            </td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">152</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">46</td>
+                            <td class="px-2 py-4 md:px-4 text-sm md:text-base text-[#550000] font-sans">114</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <!-- Table Note -->
-            <p class="mt-6 text-center text-base italic text-[#550000] font-sans">
-                All measurements are in centimeters (cm).
+            <p class="mt-6 text-center text-base italic text-[#550000] font-sans" data-i18n="sizeGuide.measurementNote">
+                All measurements are in centimeters (cm). If you are using inches, 1 inch = 2.54 cm.
             </p>
         </section>
 
@@ -189,8 +207,8 @@
         <section class="max-w-3xl mx-auto px-6 mt-10 mb-12 animate-fade-in-delay-3 opacity-0"
             style="animation: fadeIn 0.8s ease-out 0.6s forwards;">
             <div class="border border-[#550000]/30 rounded-lg p-8 bg-[#FAF9F6] shadow-sm">
-                <h2 class="font-medium text-lg text-[#550000] font-serif mb-3">Tip</h2>
-                <p class="text-base text-[#550000] leading-relaxed font-sans">
+                <h2 class="font-medium text-lg text-[#550000] font-serif mb-3" data-i18n="sizeGuide.tipTitle">Tip</h2>
+                <p class="text-base text-[#550000] leading-relaxed font-sans" data-i18n="sizeGuide.tipText">
                     If you are between two sizes, we recommend choosing the larger size for maximum comfort and a modest
                     silhouette.
                 </p>
@@ -200,13 +218,13 @@
         <!-- Help CTA Section -->
         <section class="max-w-4xl mx-auto px-6 mt-12 mb-20 text-center animate-fade-in-delay-4 opacity-0"
             style="animation: fadeIn 0.8s ease-out 0.8s forwards;">
-            <h2 class="font-serif text-2xl md:text-3xl font-bold text-[#550000] mb-6">
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-[#550000] mb-6" data-i18n="sizeGuide.helpTitle">
                 Need help choosing your size?
             </h2>
             <a href="https://wa.me/971502507859?text=Hello%2C%20I%20need%20help%20choosing%20my%20abaya%20size."
                 target="_blank"
-                class="inline-block bg-[#550000] text-white px-10 py-4 rounded-full text-lg font-medium hover:bg-[#440000] hover:scale-105 transition-all duration-300 shadow-md">
-                Contact us on WhatsApp
+                class="block w-full md:w-auto md:inline-block bg-[#550000] text-white px-6 py-5 md:px-10 md:py-4 rounded-full text-lg md:text-xl font-medium hover:bg-[#440000] hover:scale-105 transition-all duration-300 shadow-md" data-i18n="sizeGuide.helpCta">
+                Chat on WhatsApp
             </a>
         </section>
 
@@ -221,7 +239,7 @@
                 <a href="index.html" class="inline-flex items-center gap-2 group hover:opacity-80 transition-opacity">
                     <img src="assets/images/logo.png" alt="LYORE ABAYA" class="h-10 w-auto object-contain">
                 </a>
-                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0">
+                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0" data-i18n="footer.brandDescription">
                     Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
                     Inspired by the diamond within.
                 </p>
@@ -230,22 +248,22 @@
             <!-- Links -->
             <div class="flex justify-center md:justify-start gap-16">
                 <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Explore</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.exploreTitle">Explore</h4>
                     <ul class="space-y-4 text-sm font-medium tracking-wide">
-                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Home</a>
+                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.home">Home</a>
                         </li>
                         <li><a href="collections.html"
-                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Collection</a></li>
-                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Size
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.collection">Collection</a></li>
+                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.sizeGuide">Size
                                 Guide</a></li>
                     </ul>
                 </div>
                 <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Help</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.helpTitle">Help</h4>
                     <ul class="space-y-4 text-sm font-medium tracking-wide">
                         <li><a href="returns-policy.html"
-                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Shipping & Return</a></li>
-                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Contact
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.shippingReturn">Shipping & Return</a></li>
+                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.contact">Contact
                                 Us</a></li>
 
                     </ul>
@@ -254,7 +272,7 @@
 
             <!-- Connect -->
             <div class="space-y-6 text-center md:text-left">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Connect</h4>
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.connectTitle">Connect</h4>
                 <div class="space-y-4">
                     <a href="https://wa.me/971502507859"
                         class="flex items-center justify-center md:justify-start gap-3 hover:opacity-70 transition-opacity text-sm font-medium text-[#6B1C23]">
@@ -287,7 +305,7 @@
 
         <div
             class="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#6B1C23]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] opacity-60">
-            <p>© 2025 LYORE ABAYA. All Rights Reserved.</p>
+            <p data-i18n="footer.copyright">© 2025 LYORE ABAYA. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -319,6 +337,9 @@
             }
         }
     </script>
+
+    <!-- Main JS - Initialize translation system and other functionality -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

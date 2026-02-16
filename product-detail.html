@@ -19,6 +19,16 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    
+    <!-- RTL/LTR Support CSS -->
+    <link rel="stylesheet" href="assets/css/rtl-support.css" />
+
+    <!-- Translation System Scripts -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/storage-manager.js"></script>
+    <script src="assets/js/translation-engine.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
+    <script src="assets/js/translation-manager.js"></script>
 
     <script>
         tailwind.config = {
@@ -101,26 +111,29 @@
             <!-- Navigation Desktop -->
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="index.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Home</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.home">Home</a>
                 <a href="collections.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold">Collection</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold" data-i18n="nav.collection">Collection</a>
                 <a href="size-guide.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Size
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.sizeGuide">Size
                     Guide</a>
                 <a href="returns-policy.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Shipping
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.shippingReturn">Shipping
                     & Return</a>
                 <a href="contact.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Contact</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.contact">Contact</a>
             </nav>
 
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center gap-4">
+                <!-- Language Switcher Container -->
+                <div id="language-switcher-container"></div>
+                
                 <a href="https://wa.me/971502507859?text=Hello%2C%20I%20want%20to%20inquire%20about%20LYORE%20abayas"
                     target="_blank"
                     class="hidden md:flex items-center gap-2 bg-[#550000] text-white px-6 py-2 rounded-full hover:bg-[#6B1C23] transition-colors shadow-md hover:shadow-lg text-sm font-medium tracking-wide">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Chat on WhatsApp</span>
+                    <span data-i18n="cta.chatWhatsApp">Chat on WhatsApp</span>
                 </a>
 
                 <!-- Mobile Menu Button -->
@@ -140,15 +153,15 @@
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
         <a href="index.html"
-            class="text-3xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Home</a>
+            class="text-3xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.home">Home</a>
         <a href="collections.html"
-            class="text-3xl font-display text-[#6B1C23] font-bold hover:text-[#550000] transition-colors">Collection</a>
+            class="text-3xl font-display text-[#6B1C23] font-bold hover:text-[#550000] transition-colors" data-i18n="nav.collection">Collection</a>
         <a href="size-guide.html"
-            class="text-3xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Size Guide</a>
+            class="text-3xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.sizeGuide">Size Guide</a>
         <a href="returns-policy.html"
-            class="text-3xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Shipping & Return</a>
+            class="text-3xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.shippingReturn">Shipping & Return</a>
         <a href="contact.html"
-            class="text-3xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Contact</a>
+            class="text-3xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.contact">Contact</a>
     </div>
 
     <!-- Main Content -->
@@ -157,21 +170,21 @@
         <!-- Breadcrumbs -->
         <div class="max-w-7xl mx-auto px-6 py-4">
             <nav class="text-sm text-[#550000] font-sans">
-                <a href="index.html" class="hover:underline opacity-70 hover:opacity-100 transition-opacity">Home</a>
+                <a href="index.html" class="hover:underline opacity-70 hover:opacity-100 transition-opacity" data-i18n="productDetail.breadcrumbHome">Home</a>
                 <span class="mx-2 opacity-50">/</span>
                 <a href="collections.html"
-                    class="hover:underline opacity-70 hover:opacity-100 transition-opacity">Collection</a>
+                    class="hover:underline opacity-70 hover:opacity-100 transition-opacity" data-i18n="productDetail.breadcrumbCollection">Collection</a>
                 <span class="mx-2 opacity-50">/</span>
                 <span class="font-medium">The Velvet Noir</span>
             </nav>
         </div>
 
         <!-- Main Product Section -->
-        <section class="max-w-7xl mx-auto px-6 py-8 md:py-12">
-            <div class="grid md:grid-cols-2 gap-12 items-start">
+        <section class="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8 lg:py-12 overflow-hidden">
+            <div class="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-12 items-start">
 
                 <!-- Left Column: Gallery -->
-                <div class="space-y-4">
+                <div class="space-y-3 md:space-y-4">
                     <!-- Main Image -->
                     <div class="w-full aspect-[3/4] rounded-lg overflow-hidden shadow-md bg-gray-100">
                         <img id="mainImage"
@@ -182,101 +195,110 @@
                     </div>
 
                     <!-- Thumbnails -->
-                    <div class="grid grid-cols-4 md:grid-cols-5 gap-3">
+                    <div class="flex gap-2 overflow-x-auto md:grid md:grid-cols-5 md:gap-3 pb-2 md:pb-0 -mx-1 px-1">
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlKSf8MQzAKzp_L5e-bLcWTAdQ5lERWszfNfFavPBBRINhE2pWO-KJPYgu-V5sYcr2IB9vJ4IeJNwopUwf_M_ga7ZOi6GrV5A3Lk5fPT7k7jAHn5iYjkz_PCRK72YvMfgAvRv3dTYtUriRXZ8oJTx_aDM-LNJSVgNFZqctY0K3yZ9pByRZJYnf4Q2v2Iak2CRnGU1Al50Lp-hA1qmIQ_X4Cf5cTo4jCQ7gSGKSjogVLFk8OGRsVeBGxY4qpjIpe_0mpY8eB_oYkPgr"
                             alt="The Velvet Noir view 1"
-                            class="thumbnail w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-[#550000] opacity-100 transition-all duration-300 hover:opacity-100"
+                            class="thumbnail flex-shrink-0 w-20 md:w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-[#550000] opacity-100 transition-all duration-300 hover:opacity-100"
                             loading="lazy">
 
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH5HXSBxFqtRvkavttHiQBcqfk82aiG3bprDqiwRZPWVR6tBAph5V4Trw9Hqz64jj-SX3QF4sHVCHqKGtD6PAIkeU20hqA0q4DcUwNoOZ08XV-3-OgJx-v-NqAZMkWmSHEtCYkZiUqRvh5Xad9V9Y39BhSCxq8WjsyIZ-JlVGh9qgDXZraC6qL_URJ92fDN5nDj5lD_YRB9tfE4m-f63lj2qRj4ZuLFl3RSyUC44tscrwkum2DMtkpQaUOF91E45qApO3uk4J59mn4"
                             alt="The Velvet Noir view 2"
-                            class="thumbnail w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-transparent opacity-70 transition-all duration-300 hover:border-[#550000] hover:opacity-100"
+                            class="thumbnail flex-shrink-0 w-20 md:w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-transparent opacity-70 transition-all duration-300 hover:border-[#550000] hover:opacity-100"
                             loading="lazy">
 
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu"
                             alt="The Velvet Noir view 3"
-                            class="thumbnail w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-transparent opacity-70 transition-all duration-300 hover:border-[#550000] hover:opacity-100"
+                            class="thumbnail flex-shrink-0 w-20 md:w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-transparent opacity-70 transition-all duration-300 hover:border-[#550000] hover:opacity-100"
                             loading="lazy">
 
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIDEmim0i-uWoFS79D-aDW2nRuOs4feCqOGuhdSPl7YOyd9jgojw0C61KqZq4UZ44dXcsSGB4PfffBzi3_7iZaZ7n40SaRaTy6_jhmtStYe0MfnZpnK_7br7Gq-tnjMEt1PzXKQIHwVsPVm0pOtclwRfrPqnDsoK0I1nhNuS3Fdjy-xigEUjA1QKxq4oZ9GRESqoonXzQ58vUlhBe4CQ3YTOvWnEEjS2EgasnFYD8NQqe6ssQq6smilIQ6TvHYdGCuAnh-qDFAvtYQ"
                             alt="The Velvet Noir view 4"
-                            class="thumbnail w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-transparent opacity-70 transition-all duration-300 hover:border-[#550000] hover:opacity-100"
+                            class="thumbnail flex-shrink-0 w-20 md:w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-transparent opacity-70 transition-all duration-300 hover:border-[#550000] hover:opacity-100"
                             loading="lazy">
 
                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRMyP_-ZlUBct0pgjTljGmzUajZTeotDpf_Mr823De8wGrJcoseFeDibr0RMDSFuk1o_3CHRgwRMgM7uNP4sLhW7pJP04lLu3C8oA4i-wItJymK53QahyeJZc_ra47Y0LMq2Il-o_FBNdxRqIrmuXghD82a5oh1Qo0ACPMO33viYiuLDGnXfvEPPK8CLkX1n85u0wZT2uwP0MQGhlg23y-s1NiowXiCmWJSUhrKtDUODcx0OqdLnDOprr5c0d49aMnWLGtH18JPHxy"
                             alt="The Velvet Noir view 5"
-                            class="thumbnail w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-transparent opacity-70 transition-all duration-300 hover:border-[#550000] hover:opacity-100"
+                            class="thumbnail flex-shrink-0 w-20 md:w-full aspect-[3/4] object-cover rounded-md cursor-pointer border-2 border-transparent opacity-70 transition-all duration-300 hover:border-[#550000] hover:opacity-100"
                             loading="lazy">
                     </div>
                 </div>
 
                 <!-- Right Column: Info -->
-                <div class="sticky top-24">
-                    <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#550000] mb-3">The Velvet
+                <div class="md:sticky md:top-24">
+                    <h1 class="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-[#550000] mb-3" data-i18n="products.velvetNoir">The Velvet
                         Noir</h1>
-                    <p class="text-2xl md:text-3xl font-bold text-[#550000] mb-6">$299.00</p>
+                    <p class="text-xl md:text-3xl font-bold text-[#550000] mb-6">$299.00</p>
 
-                    <p class="text-base md:text-lg text-[#550000] leading-relaxed mb-6 font-light">
+                    <p class="text-base md:text-lg text-[#550000] leading-relaxed mb-6 font-light" data-i18n="productDetail.productDescription">
                         Timeless elegance meets modern sophistication. Crafted from premium velvet fabric for the
                         discerning woman who values modest luxury. The perfect statement piece for evening occasions.
                     </p>
 
                     <div class="mb-8">
-                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-3">Details</h3>
+                        <h3 class="font-display text-lg md:text-xl font-semibold text-[#550000] mb-3" data-i18n="productDetail.detailsTitle">Details</h3>
                         <ul class="list-disc ml-5 space-y-2 text-[#550000] text-sm md:text-base">
-                            <li>Fabric: Premium Velvet</li>
-                            <li>Color: Deep Maroon</li>
-                            <li>Fit: Modest A-line cut with elegant draping</li>
-                            <li>Care: Dry clean only</li>
+                            <li data-i18n="productDetail.fabric">Fabric: Premium Velvet</li>
+                            <li data-i18n="productDetail.color">Color: Deep Maroon</li>
+                            <li data-i18n="productDetail.fit">Fit: Modest A-line cut with elegant draping</li>
+                            <li data-i18n="productDetail.care">Care: Dry clean only</li>
                         </ul>
                     </div>
 
                     <div class="mb-4">
                         <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-display text-xl font-semibold text-[#550000]">Select Size</h3>
+                            <h3 class="font-display text-lg md:text-xl font-semibold text-[#550000]" data-i18n="productDetail.selectSize">Select Size</h3>
                             <a href="size-guide.html"
-                                class="text-sm text-[#550000] underline hover:no-underline font-medium">View Size
+                                class="text-sm text-[#550000] underline hover:no-underline font-medium" data-i18n="productDetail.viewSizeGuide">View Size
                                 Guide</a>
                         </div>
                         <div class="flex gap-3 flex-wrap">
                             <button
-                                class="size-btn border-2 border-[#550000] text-[#550000] px-5 py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300"
+                                class="size-btn border-2 border-[#550000] text-[#550000] px-6 py-3 md:px-5 md:py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300 min-h-[44px]"
                                 data-size="XS">XS</button>
                             <button
-                                class="size-btn border-2 border-[#550000] text-[#550000] px-5 py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300"
+                                class="size-btn border-2 border-[#550000] text-[#550000] px-6 py-3 md:px-5 md:py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300 min-h-[44px]"
                                 data-size="S">S</button>
                             <button
-                                class="size-btn border-2 border-[#550000] text-[#550000] px-5 py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300"
+                                class="size-btn border-2 border-[#550000] text-[#550000] px-6 py-3 md:px-5 md:py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300 min-h-[44px]"
                                 data-size="M">M</button>
                             <button
-                                class="size-btn border-2 border-[#550000] text-[#550000] px-5 py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300"
+                                class="size-btn border-2 border-[#550000] text-[#550000] px-6 py-3 md:px-5 md:py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300 min-h-[44px]"
                                 data-size="L">L</button>
                             <button
-                                class="size-btn border-2 border-[#550000] text-[#550000] px-5 py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300"
+                                class="size-btn border-2 border-[#550000] text-[#550000] px-6 py-3 md:px-5 md:py-2 rounded-full font-medium cursor-pointer hover:bg-[#550000] hover:text-white transition-all duration-300 min-h-[44px]"
                                 data-size="XL">XL</button>
                         </div>
                     </div>
 
                     <button id="whatsappOrderBtn"
-                        class="w-full bg-[#550000] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#6B1C23] transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-3 mt-8 animate-slide-up">
+                        class="hidden md:flex w-full bg-[#550000] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#6B1C23] transition-all duration-300 shadow-md hover:shadow-lg items-center justify-center gap-3 mt-8 animate-slide-up">
                         <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        Order via WhatsApp
+                        <span data-i18n="productDetail.orderViaWhatsApp">Order via WhatsApp</span>
                     </button>
 
                     <!-- Shipping Info -->
                     <div class="mt-8 pt-8 border-t border-[#550000]/20 text-sm md:text-base text-[#550000] space-y-1">
-                        <p>Shipping: Delivery details available <a href="returns-policy.html"
-                                class="underline hover:no-underline font-medium">here</a>.</p>
-                        <p>Returns: Policy available <a href="returns-policy.html"
-                                class="underline hover:no-underline font-medium">here</a>.</p>
+                        <p><span data-i18n="productDetail.shippingInfo">Shipping: Delivery details available</span> <a href="returns-policy.html"
+                                class="underline hover:no-underline font-medium" data-i18n="productDetail.here">here</a>.</p>
+                        <p><span data-i18n="productDetail.returnsInfo">Returns: Policy available</span> <a href="returns-policy.html"
+                                class="underline hover:no-underline font-medium" data-i18n="productDetail.here">here</a>.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Fixed Bottom WhatsApp Button - Mobile Only -->
+        <div class="fixed bottom-0 left-0 right-0 z-40 p-4 bg-gradient-to-t from-[#FAF9F6] via-[#FAF9F6] to-transparent md:hidden">
+            <button id="whatsappOrderBtnMobile"
+                class="w-full bg-[#550000] text-white px-6 py-4 rounded-full text-base font-semibold hover:bg-[#6B1C23] transition-all duration-300 shadow-lg flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                <span data-i18n="productDetail.orderViaWhatsApp">Order via WhatsApp</span>
+            </button>
+        </div>
+
         <!-- You May Also Like Section -->
         <section class="max-w-7xl mx-auto px-6 py-16 border-t border-[#6B1C23]/10 mt-12">
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-[#550000] text-center mb-12">You may also like
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-[#550000] text-center mb-12" data-i18n="productDetail.youMayAlsoLike">You may also like
             </h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -290,10 +312,10 @@
                             loading="lazy">
                     </div>
                     <div class="p-6 text-center">
-                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-2">The Empress Silk</h3>
+                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-2" data-i18n="products.empressSilk">The Empress Silk</h3>
                         <p class="text-lg font-bold text-[#550000] mb-4">$349.00</p>
                         <a href="product-detail.html"
-                            class="block w-full text-center bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors duration-300">View
+                            class="block w-full text-center bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors duration-300" data-i18n="products.viewDetails">View
                             Details</a>
                     </div>
                 </div>
@@ -308,10 +330,10 @@
                             loading="lazy">
                     </div>
                     <div class="p-6 text-center">
-                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-2">The Royal Grace</h3>
+                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-2" data-i18n="products.royalGrace">The Royal Grace</h3>
                         <p class="text-lg font-bold text-[#550000] mb-4">$395.00</p>
                         <a href="product-detail.html"
-                            class="block w-full text-center bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors duration-300">View
+                            class="block w-full text-center bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors duration-300" data-i18n="products.viewDetails">View
                             Details</a>
                     </div>
                 </div>
@@ -326,10 +348,10 @@
                             loading="lazy">
                     </div>
                     <div class="p-6 text-center">
-                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-2">The Midnight Luxe</h3>
+                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-2" data-i18n="products.midnightLuxe">The Midnight Luxe</h3>
                         <p class="text-lg font-bold text-[#550000] mb-4">$310.00</p>
                         <a href="product-detail.html"
-                            class="block w-full text-center bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors duration-300">View
+                            class="block w-full text-center bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors duration-300" data-i18n="products.viewDetails">View
                             Details</a>
                     </div>
                 </div>
@@ -344,10 +366,10 @@
                             loading="lazy">
                     </div>
                     <div class="p-6 text-center">
-                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-2">The Silk Dream</h3>
+                        <h3 class="font-display text-xl font-semibold text-[#550000] mb-2" data-i18n="products.silkDream">The Silk Dream</h3>
                         <p class="text-lg font-bold text-[#550000] mb-4">$350.00</p>
                         <a href="product-detail.html"
-                            class="block w-full text-center bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors duration-300">View
+                            class="block w-full text-center bg-[#550000] text-white px-6 py-3 rounded-full font-medium hover:bg-[#6B1C23] transition-colors duration-300" data-i18n="products.viewDetails">View
                             Details</a>
                     </div>
                 </div>
@@ -365,7 +387,7 @@
                 <a href="index.html" class="inline-flex items-center gap-2 group hover:opacity-80 transition-opacity">
                     <img src="assets/images/logo.png" alt="LYORE ABAYA" class="h-10 w-auto object-contain">
                 </a>
-                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0">
+                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0" data-i18n="footer.brandDescription">
                     Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
                     Inspired by the diamond within.
                 </p>
@@ -374,22 +396,22 @@
             <!-- Links -->
             <div class="flex justify-center md:justify-start gap-16">
                 <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Explore</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.exploreTitle">Explore</h4>
                     <ul class="space-y-4 text-sm font-medium tracking-wide">
-                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Home</a>
+                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.home">Home</a>
                         </li>
                         <li><a href="collections.html"
-                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Collection</a></li>
-                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Size
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.collection">Collection</a></li>
+                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.sizeGuide">Size
                                 Guide</a></li>
                     </ul>
                 </div>
                 <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Help</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.helpTitle">Help</h4>
                     <ul class="space-y-4 text-sm font-medium tracking-wide">
                         <li><a href="returns-policy.html"
-                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Shipping & Return</a></li>
-                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Contact
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.shippingReturn">Shipping & Return</a></li>
+                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.contact">Contact
                                 Us</a></li>
 
                     </ul>
@@ -398,7 +420,7 @@
 
             <!-- Connect -->
             <div class="space-y-6 text-center md:text-left">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Connect</h4>
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.connectTitle">Connect</h4>
                 <div class="space-y-4">
                     <a href="https://wa.me/971502507859"
                         class="flex items-center justify-center md:justify-start gap-3 hover:opacity-70 transition-opacity text-sm font-medium text-[#6B1C23]">
@@ -412,15 +434,15 @@
                     </a>
                     <div class="flex items-center justify-center md:justify-start gap-4 pt-2">
                         <a href="https://instagram.com/Lyore_abaya" target="_blank"
-                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="Instagram">
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="footer.socialInstagram" title="Instagram">
                             <i class="fa-brands fa-instagram text-xl"></i>
                         </a>
                         <a href="https://tiktok.com/@Lyore.abaya" target="_blank"
-                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="TikTok">
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="footer.socialTiktok" title="TikTok">
                             <i class="fa-brands fa-tiktok text-xl"></i>
                         </a>
                         <a href="https://snapchat.com/add/Lyoreabayas" target="_blank"
-                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" title="Snapchat">
+                            class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="footer.socialSnapchat" title="Snapchat">
                             <i class="fa-brands fa-snapchat text-xl"></i>
                         </a>
                     </div>
@@ -431,8 +453,8 @@
 
         <div
             class="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#6B1C23]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] opacity-60">
-            <p>© 2025 LYORE ABAYA. All Rights Reserved.</p>
-        </div>
+            <p data-i18n="footer.copyright">© 2025 LYORE ABAYA. All Rights Reserved.</p>
+        </div>v>
     </footer>
 
     <!-- Scripts -->
@@ -497,11 +519,12 @@
 
         // --- WhatsApp Order Button ---
         const whatsappBtn = document.getElementById('whatsappOrderBtn');
+        const whatsappBtnMobile = document.getElementById('whatsappOrderBtnMobile');
         const productName = "The Velvet Noir";
         const productPrice = "$299.00";
         const whatsappNumber = "971502507859";
 
-        whatsappBtn.addEventListener('click', function () {
+        function handleWhatsAppOrder() {
             const sizeText = selectedSize ? `Size: ${selectedSize}` : "Size: I need help choosing";
 
             const message = `Hello, I want to order ${productName}.
@@ -514,8 +537,14 @@ Please confirm availability.`;
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
             window.open(whatsappURL, '_blank');
-        });
+        }
+
+        whatsappBtn.addEventListener('click', handleWhatsAppOrder);
+        whatsappBtnMobile.addEventListener('click', handleWhatsAppOrder);
     </script>
+
+    <!-- Main JS - Initialize translation system and other functionality -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

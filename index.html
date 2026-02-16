@@ -16,6 +16,16 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    
+    <!-- RTL/LTR Support CSS -->
+    <link rel="stylesheet" href="assets/css/rtl-support.css" />
+
+    <!-- Translation System Scripts -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/storage-manager.js"></script>
+    <script src="assets/js/translation-engine.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
+    <script src="assets/js/translation-manager.js"></script>
 
     <script>
         tailwind.config = {
@@ -75,7 +85,8 @@
     </style>
 </head>
 
-<body class="bg-[#FAF9F6] text-[#6B1C23] font-sans antialiased selection:bg-[#6B1C23] selection:text-white">
+<body
+    class="bg-[#FAF9F6] text-[#6B1C23] font-sans antialiased selection:bg-[#6B1C23] selection:text-white overflow-x-hidden">
 
     <!-- Header -->
     <header
@@ -89,36 +100,60 @@
             <!-- Navigation Desktop -->
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="index.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold">Home</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold" data-i18n="nav.home">Home</a>
                 <a href="collections.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Collection</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.collection">Collection</a>
                 <a href="contact.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Contact</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.contact">Contact</a>
             </nav>
 
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center gap-4">
+                <!-- Language Switcher Container -->
+                <div id="language-switcher-container"></div>
+                
                 <a href="https://wa.me/971502507859?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%AC%D9%85%D9%88%D8%B9%D8%A9%20LYORE%20ABAYA"
                     target="_blank"
                     class="hidden md:flex items-center gap-2 bg-[#550000] text-white px-6 py-2 rounded-full hover:bg-[#6B1C23] transition-colors shadow-md hover:shadow-lg text-sm font-medium tracking-wide">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Order via WhatsApp</span>
+                    <span data-i18n="cta.orderWhatsApp">Order via WhatsApp</span>
                 </a>
 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden text-[#6B1C23] hover:opacity-70 transition-opacity">
+                <button class="lg:hidden text-[#6B1C23] hover:opacity-70 transition-opacity p-2"
+                    onclick="toggleMobileMenu()" aria-label="Menu">
                     <span class="material-symbols-outlined text-3xl">menu</span>
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-[#FAF9F6] hidden flex-col items-center justify-center space-y-8 transition-opacity duration-300">
+        <button class="absolute top-6 right-6 text-[#6B1C23] hover:opacity-70 transition-opacity p-2"
+            onclick="toggleMobileMenu()" aria-label="Close Menu">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <a href="index.html"
+            class="text-2xl font-display text-[#6B1C23] font-bold hover:text-[#550000] transition-colors py-2" data-i18n="nav.home">Home</a>
+        <a href="collections.html"
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors py-2" data-i18n="nav.collection">Collection</a>
+        <a href="size-guide.html"
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors py-2" data-i18n="nav.sizeGuide">Size Guide</a>
+        <a href="returns-policy.html"
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors py-2" data-i18n="nav.shippingReturn">Shipping &
+            Return</a>
+        <a href="contact.html"
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors py-2" data-i18n="nav.contact">Contact</a>
+    </div>
+
     <!-- Main Content -->
     <main class="pt-[80px]">
 
         <!-- Hero Section -->
         <section
-            class="h-[calc(100vh-80px)] min-h-[600px] relative overflow-hidden flex items-center justify-center text-center px-4 bg-[#FAF9F6]">
+            class="h-[calc(100vh-80px)] min-h-[500px] md:min-h-[600px] relative overflow-hidden flex items-center justify-center text-center px-6 bg-[#FAF9F6]">
             <!-- Hero Image -->
             <div class="absolute inset-0 z-0">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmO1ELcqtKB25BgQHMnSXIYG3Efc9FTAScM0UUrbx2HsYgj7XAn-YH411WXl4_0GSkw909Bd_Q80WaEzsQa0WGB5nH9t0-WTX6MSZgt5K8S3EPPCsIhMmqyj07Z9QJT4_n6z_TgupkYSxKUZ7L5L33gU3kNPmDzUz114CvYLPr-YpIVD9oUEN7Lv7KwWXBQ80tY2fTQx6Hs5JHu0l-X8LD7Djt0iexLMhKEMHeMSi7PUL9hPYoo-xPvlLeNGLxMRU5UpYmeHL1nu"
@@ -129,21 +164,21 @@
                 </div>
             </div>
 
-            <div class="relative z-10 max-w-4xl mx-auto space-y-8 animate-fade-in-up opacity-0"
+            <div class="relative z-10 max-w-4xl mx-auto space-y-6 md:space-y-8 animate-fade-in-up opacity-0"
                 style="animation-fill-mode: forwards;">
                 <h1
-                    class="text-5xl md:text-7xl lg:text-8xl font-display font-medium text-white leading-tight drop-shadow-md">
-                    The New Era of<br><span class="italic">Modesty</span>
+                    class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-medium text-white leading-tight drop-shadow-md">
+                    <span data-i18n="hero.title">The New Era</span> of<br><span class="italic" data-i18n="hero.subtitle">Modesty</span>
                 </h1>
-                <p class="text-lg md:text-xl text-white/90 font-sans font-light tracking-wide max-w-xl mx-auto animate-fade-in-up-delay-1 opacity-0"
-                    style="animation-fill-mode: forwards;">
+                <p class="text-base sm:text-lg md:text-xl text-white/90 font-sans font-light tracking-wide max-w-xl mx-auto animate-fade-in-up-delay-1 opacity-0 px-4"
+                    style="animation-fill-mode: forwards;" data-i18n="hero.description">
                     Discover high-end luxury abayas crafted with elegance and inner strength. Timeless designs for the
                     modern woman.
                 </p>
                 <div class="pt-4 animate-fade-in-up-delay-1 opacity-0"
                     style="animation-delay: 0.5s; animation-fill-mode: forwards;">
                     <a href="collections.html"
-                        class="bg-[#550000] text-white px-8 py-3 rounded-full hover:bg-[#6B1C23] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 font-sans text-sm tracking-widest uppercase inline-block">
+                        class="bg-[#550000] text-white px-8 py-4 md:py-3 rounded-full hover:bg-[#6B1C23] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 font-sans text-sm tracking-widest uppercase inline-block touch-manipulation" data-i18n="hero.cta">
                         Shop New Collection
                     </a>
                 </div>
@@ -156,17 +191,17 @@
         </section>
 
         <!-- Signature Abayas Section -->
-        <section class="py-24 px-6 lg:px-12 bg-[#FAF9F6]">
+        <section class="py-16 md:py-24 px-6 lg:px-12 bg-[#FAF9F6]">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 space-y-4">
-                    <span class="text-xs font-bold tracking-[0.3em] uppercase text-[#6B1C23]/60">Exclusive
+                <div class="text-center mb-12 md:mb-16 space-y-4">
+                    <span class="text-xs font-bold tracking-[0.3em] uppercase text-[#6B1C23]/60" data-i18n="products.sectionLabel">Exclusive
                         Collection</span>
-                    <h2 class="text-4xl md:text-5xl font-display text-[#6B1C23] italic">Signature Abayas</h2>
-                    <div class="w-24 h-[1px] bg-[#6B1C23]/20 mx-auto mt-6"></div>
+                    <h2 class="text-3xl md:text-5xl font-display text-[#6B1C23] italic" data-i18n="products.sectionTitle">Signature Abayas</h2>
+                    <div class="w-16 md:w-24 h-[1px] bg-[#6B1C23]/20 mx-auto mt-4 md:mt-6"></div>
                 </div>
 
                 <!-- Product Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16">
 
                     <!-- Product 1 -->
                     <div class="group cursor-pointer transition-all duration-500 hover:-translate-y-2">
@@ -178,16 +213,16 @@
                             <div
                                 class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                 <span
-                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="products.quickView">Quick
                                     View</span>
                             </div>
                         </div>
                         <div class="mt-6 text-center space-y-2">
-                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity" data-i18n="products.velvetNoir">
                                 The Velvet Noir</h3>
                             <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$299.00</p>
                             <a href="product-detail.html"
-                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23] py-2 md:py-0" data-i18n="products.viewDetails">View
                                 Details</a>
                         </div>
                     </div>
@@ -202,16 +237,16 @@
                             <div
                                 class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                 <span
-                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="products.quickView">Quick
                                     View</span>
                             </div>
                         </div>
                         <div class="mt-6 text-center space-y-2">
-                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity" data-i18n="products.empressSilk">
                                 The Empress Silk Abaya</h3>
                             <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$349.00</p>
                             <a href="product-detail.html"
-                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23] py-2 md:py-0" data-i18n="products.viewDetails">View
                                 Details</a>
                         </div>
                     </div>
@@ -226,16 +261,16 @@
                             <div
                                 class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                 <span
-                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="products.quickView">Quick
                                     View</span>
                             </div>
                         </div>
                         <div class="mt-6 text-center space-y-2">
-                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity" data-i18n="products.royalSapphire">
                                 Royal Sapphire Kaftan</h3>
                             <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$395.00</p>
                             <a href="product-detail.html"
-                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23] py-2 md:py-0" data-i18n="products.viewDetails">View
                                 Details</a>
                         </div>
                     </div>
@@ -250,16 +285,16 @@
                             <div
                                 class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                 <span
-                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="products.quickView">Quick
                                     View</span>
                             </div>
                         </div>
                         <div class="mt-6 text-center space-y-2">
-                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity" data-i18n="products.midnightSands">
                                 Midnight Sands Flow</h3>
                             <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$310.00</p>
                             <a href="product-detail.html"
-                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23] py-2 md:py-0" data-i18n="products.viewDetails">View
                                 Details</a>
                         </div>
                     </div>
@@ -274,16 +309,16 @@
                             <div
                                 class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                 <span
-                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="products.quickView">Quick
                                     View</span>
                             </div>
                         </div>
                         <div class="mt-6 text-center space-y-2">
-                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity" data-i18n="products.silkSand">
                                 Silk Sand Kaftan</h3>
                             <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$350.00</p>
                             <a href="product-detail.html"
-                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23] py-2 md:py-0" data-i18n="products.viewDetails">View
                                 Details</a>
                         </div>
                     </div>
@@ -298,26 +333,26 @@
                             <div
                                 class="absolute inset-0 bg-[#6B1C23]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                 <span
-                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quick
+                                    class="bg-white/90 text-[#6B1C23] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="products.quickView">Quick
                                     View</span>
                             </div>
                         </div>
                         <div class="mt-6 text-center space-y-2">
-                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity">
+                            <h3 class="text-lg font-display text-[#6B1C23] group-hover:opacity-70 transition-opacity" data-i18n="products.sculptedMinimalist">
                                 The Sculpted Minimalist</h3>
                             <p class="text-[#6B1C23] font-bold font-sans text-sm tracking-wide">$275.00</p>
                             <a href="product-detail.html"
-                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23]">View
+                                class="inline-block mt-3 text-xs border-b border-[#6B1C23] pb-0.5 uppercase tracking-widest hover:text-[#550000] hover:border-[#550000] transition-colors text-[#6B1C23] py-2 md:py-0" data-i18n="products.viewDetails">View
                                 Details</a>
                         </div>
                     </div>
 
                 </div>
 
-                <div class="text-center mt-20">
+                <div class="text-center mt-12 md:mt-20">
                     <a href="collections.html"
-                        class="inline-flex items-center gap-2 text-[#6B1C23] text-xs font-bold uppercase tracking-[0.2em] border-b border-[#6B1C23] pb-1 hover:opacity-70 transition-opacity">
-                        View All Collections
+                        class="inline-flex items-center gap-2 text-[#6B1C23] text-xs font-bold uppercase tracking-[0.2em] border-b border-[#6B1C23] pb-1 hover:opacity-70 transition-opacity py-3 md:py-0">
+                        <span data-i18n="products.viewAllCollections">View All Collections</span>
                         <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </a>
                 </div>
@@ -335,7 +370,7 @@
                 <a href="index.html" class="inline-flex items-center gap-2 group hover:opacity-80 transition-opacity">
                     <img src="assets/images/logo.png" alt="LYORE ABAYA" class="h-10 w-auto object-contain">
                 </a>
-                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0">
+                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0" data-i18n="footer.brandDescription">
                     Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
                     Inspired by the diamond within.
                 </p>
@@ -344,22 +379,22 @@
             <!-- Links -->
             <div class="flex justify-center md:justify-start gap-16">
                 <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Explore</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.exploreTitle">Explore</h4>
                     <ul class="space-y-4 text-sm font-medium tracking-wide">
-                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Home</a>
+                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.home">Home</a>
                         </li>
                         <li><a href="collections.html"
-                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Collection</a></li>
-                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Size
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.collection">Collection</a></li>
+                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.sizeGuide">Size
                                 Guide</a></li>
                     </ul>
                 </div>
                 <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Help</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.helpTitle">Help</h4>
                     <ul class="space-y-4 text-sm font-medium tracking-wide">
                         <li><a href="returns-policy.html"
-                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Shipping & Return</a></li>
-                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Contact
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.shippingReturn">Shipping & Return</a></li>
+                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.contact">Contact
                                 Us</a></li>
 
                     </ul>
@@ -368,7 +403,7 @@
 
             <!-- Connect -->
             <div class="space-y-6 text-center md:text-left">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Connect</h4>
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.connectTitle">Connect</h4>
                 <div class="space-y-4">
                     <a href="https://wa.me/971502507859"
                         class="flex items-center justify-center md:justify-start gap-3 hover:opacity-70 transition-opacity text-sm font-medium text-[#6B1C23]">
@@ -401,10 +436,26 @@
 
         <div
             class="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#6B1C23]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] opacity-60">
-            <p>© 2025 LYORE ABAYA. All Rights Reserved.</p>
+            <p data-i18n="footer.copyright">© 2025 LYORE ABAYA. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        }
+    </script>
+
+    <!-- Main JS - Initialize translation system and other functionality -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

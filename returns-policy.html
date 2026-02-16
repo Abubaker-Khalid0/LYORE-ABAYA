@@ -17,6 +17,16 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    
+    <!-- RTL/LTR Support CSS -->
+    <link rel="stylesheet" href="assets/css/rtl-support.css" />
+
+    <!-- Translation System Scripts -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/storage-manager.js"></script>
+    <script src="assets/js/translation-engine.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
+    <script src="assets/js/translation-manager.js"></script>
 
     <script>
         tailwind.config = {
@@ -67,7 +77,8 @@
     </style>
 </head>
 
-<body class="bg-[#FAF9F6] text-[#6B1C23] font-sans antialiased selection:bg-[#6B1C23] selection:text-white">
+<body
+    class="bg-[#FAF9F6] text-[#6B1C23] font-sans antialiased selection:bg-[#6B1C23] selection:text-white overflow-x-hidden">
 
     <!-- Header (Identical to Homepage) -->
     <header
@@ -81,26 +92,29 @@
             <!-- Navigation Desktop -->
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="index.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Home</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.home">Home</a>
                 <a href="collections.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Collection</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.collection">Collection</a>
                 <a href="size-guide.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Size
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.sizeGuide">Size
                     Guide</a>
                 <a href="returns-policy.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold">Shipping
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link font-bold" data-i18n="nav.shippingReturn">Shipping
                     & Return</a>
                 <a href="contact.html"
-                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link">Contact</a>
+                    class="text-[#6B1C23] font-sans text-sm tracking-widest uppercase hover:opacity-70 transition-opacity relative nav-link" data-i18n="nav.contact">Contact</a>
             </nav>
 
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center gap-4">
+                <!-- Language Switcher Container -->
+                <div id="language-switcher-container"></div>
+                
                 <a href="https://wa.me/971502507859?text=Hello%2C%20I%20have%20a%20question%20about%20shipping%20or%20returns"
                     target="_blank"
                     class="hidden md:flex items-center gap-2 bg-[#550000] text-white px-6 py-2 rounded-full hover:bg-[#6B1C23] transition-colors shadow-md hover:shadow-lg text-sm font-medium tracking-wide">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Contact Support</span>
+                    <span data-i18n="cta.contactSupport">Contact Support</span>
                 </a>
 
                 <!-- Mobile Menu Button -->
@@ -120,43 +134,45 @@
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
         <a href="index.html"
-            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Home</a>
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.home">Home</a>
         <a href="collections.html"
-            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Collection</a>
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.collection">Collection</a>
         <a href="size-guide.html"
-            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Size Guide</a>
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.sizeGuide">Size Guide</a>
         <a href="returns-policy.html"
-            class="text-2xl font-display text-[#6B1C23] font-bold hover:text-[#550000] transition-colors">Shipping &
+            class="text-2xl font-display text-[#6B1C23] font-bold hover:text-[#550000] transition-colors" data-i18n="nav.shippingReturn">Shipping &
             Return</a>
         <a href="contact.html"
-            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors">Contact</a>
+            class="text-2xl font-display text-[#6B1C23] hover:text-[#550000] transition-colors" data-i18n="nav.contact">Contact</a>
     </div>
 
     <!-- Main Content -->
     <main class="pt-[120px] pb-24">
 
         <!-- Page Title Section -->
-        <div class="max-w-4xl mx-auto px-6 mb-16 text-center animate-fade-in-up">
-            <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#550000] mb-6">Shipping & Returns
+        <div class="max-w-4xl mx-auto px-6 mb-12 md:mb-16 text-center animate-fade-in-up">
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-[#550000] mb-4 md:mb-6" data-i18n="returnsPolicy.pageTitle">Shipping &
+                Returns
             </h1>
-            <p class="text-[#6B1C23]/80 uppercase tracking-[0.2em] text-xs font-medium">Refined policies for our global
+            <p class="text-[#6B1C23]/80 uppercase tracking-[0.2em] text-sm font-medium" data-i18n="returnsPolicy.pageSubtitle">Refined policies for our global
                 clientele</p>
         </div>
 
-        <div class="max-w-5xl mx-auto px-6 space-y-24 animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div class="max-w-5xl mx-auto px-6 space-y-16 md:space-y-24 animate-fade-in-up" style="animation-delay: 0.2s;">
             <!-- Shipping Information -->
             <section class="space-y-8">
                 <div class="flex items-center gap-4 border-b border-[#6B1C23]/10 pb-4">
                     <span class="material-symbols-outlined text-3xl text-[#550000]">package_2</span>
-                    <h2 class="text-2xl font-display font-semibold text-[#550000]">Shipping Information</h2>
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold text-[#550000]" data-i18n="returnsPolicy.shippingTitle">Shipping Information</h2>
                 </div>
 
                 <div class="grid gap-6 md:grid-cols-1">
                     <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
                         <span class="material-symbols-outlined text-[#550000] mt-1">check_circle</span>
                         <div>
-                            <strong class="block text-[#550000] font-bold mb-1">Delivery Time</strong>
-                            <p class="text-[#6B1C23]/80 leading-relaxed">Orders are processed within 24-48 hours.
+                            <strong class="block text-[#550000] font-bold mb-2 text-lg" data-i18n="returnsPolicy.deliveryTimeTitle">Delivery Time</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed text-base" data-i18n="returnsPolicy.deliveryTimeText">Orders are processed within 24-48
+                                hours.
                                 Domestic delivery takes 2-3 business days, while international shipping ranges from 5-7
                                 business days.</p>
                         </div>
@@ -165,8 +181,9 @@
                     <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
                         <span class="material-symbols-outlined text-[#550000] mt-1">check_circle</span>
                         <div>
-                            <strong class="block text-[#550000] font-bold mb-1">Shipping Cost</strong>
-                            <p class="text-[#6B1C23]/80 leading-relaxed">Complimentary express shipping on all orders
+                            <strong class="block text-[#550000] font-bold mb-2 text-lg" data-i18n="returnsPolicy.shippingCostTitle">Shipping Cost</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed text-base" data-i18n="returnsPolicy.shippingCostText">Complimentary express shipping on all
+                                orders
                                 over $500. A flat rate of $25 applies for orders below this amount.</p>
                         </div>
                     </div>
@@ -174,8 +191,9 @@
                     <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
                         <span class="material-symbols-outlined text-[#550000] mt-1">check_circle</span>
                         <div>
-                            <strong class="block text-[#550000] font-bold mb-1">Areas</strong>
-                            <p class="text-[#6B1C23]/80 leading-relaxed">We offer premium worldwide delivery via DHL
+                            <strong class="block text-[#550000] font-bold mb-2 text-lg" data-i18n="returnsPolicy.areasTitle">Areas</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed text-base" data-i18n="returnsPolicy.areasText">We offer premium worldwide delivery
+                                via DHL
                                 Express and FedEx to over 150 countries.</p>
                         </div>
                     </div>
@@ -183,8 +201,9 @@
                     <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
                         <span class="material-symbols-outlined text-[#550000] mt-1">inventory_2</span>
                         <div>
-                            <strong class="block text-[#550000] font-bold mb-1">Packaging</strong>
-                            <p class="text-[#6B1C23]/80 leading-relaxed">Every LYORE piece arrives in our signature
+                            <strong class="block text-[#550000] font-bold mb-2 text-lg" data-i18n="returnsPolicy.packagingTitle">Packaging</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed text-base" data-i18n="returnsPolicy.packagingText">Every LYORE piece arrives in our
+                                signature
                                 sustainable luxury box, protected by acid-free tissue paper and a silk dust bag.</p>
                         </div>
                     </div>
@@ -192,8 +211,9 @@
                     <div class="flex gap-4 p-6 bg-white rounded-lg shadow-sm border border-[#6B1C23]/5">
                         <span class="material-symbols-outlined text-[#550000] mt-1">check_circle</span>
                         <div>
-                            <strong class="block text-[#550000] font-bold mb-1">Tracking</strong>
-                            <p class="text-[#6B1C23]/80 leading-relaxed">Once dispatched, a unique tracking number will
+                            <strong class="block text-[#550000] font-bold mb-2 text-lg" data-i18n="returnsPolicy.trackingTitle">Tracking</strong>
+                            <p class="text-[#6B1C23]/80 leading-relaxed text-base" data-i18n="returnsPolicy.trackingText">Once dispatched, a unique tracking
+                                number will
                                 be sent via email and SMS for real-time monitoring.</p>
                         </div>
                     </div>
@@ -204,11 +224,12 @@
             <section class="space-y-8">
                 <div class="flex items-center gap-4 border-b border-[#6B1C23]/10 pb-4">
                     <span class="material-symbols-outlined text-3xl text-[#550000]">replay</span>
-                    <h2 class="text-2xl font-display font-semibold text-[#550000]">Return & Exchange Policy</h2>
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold text-[#550000]" data-i18n="returnsPolicy.returnsTitle">Return & Exchange Policy
+                    </h2>
                 </div>
 
                 <div class="p-8 bg-white rounded-2xl border border-[#6B1C23]/10 text-center shadow-sm">
-                    <p class="text-[#6B1C23] leading-relaxed text-lg">
+                    <p class="text-[#6B1C23] leading-loose text-lg md:text-xl" data-i18n="returnsPolicy.returnsIntro">
                         We accept returns and exchanges within <strong class="text-[#550000]">7 days</strong> of
                         delivery.
                         To be eligible, items must be unworn, unwashed, and include all original tags with the security
@@ -217,41 +238,52 @@
                 </div>
 
                 <div class="space-y-8 mt-12">
-                    <h3 class="text-center text-xl font-display text-[#550000]">How to Initiate a Return</h3>
+                    <h3 class="text-center text-2xl md:text-3xl font-display text-[#550000] mb-8" data-i18n="returnsPolicy.howToReturnTitle">How to Initiate a
+                        Return</h3>
 
                     <div class="grid gap-6 max-w-2xl mx-auto">
-                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                        <div
+                            class="flex items-start md:items-center gap-6 p-6 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-[#6B1C23]/5">
                             <div
                                 class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
                                 1</div>
-                            <p class="text-[#6B1C23] font-medium">Log in to your account or contact us via WhatsApp with
+                            <p class="text-[#6B1C23] font-medium text-lg" data-i18n="returnsPolicy.returnStep1">Log in to your account or contact us via
+                                WhatsApp with
                                 your order ID.</p>
                         </div>
-                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                        <div
+                            class="flex items-start md:items-center gap-6 p-6 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-[#6B1C23]/5">
                             <div
                                 class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
                                 2</div>
-                            <p class="text-[#6B1C23] font-medium">Select the items you wish to return and specify the
+                            <p class="text-[#6B1C23] font-medium text-lg" data-i18n="returnsPolicy.returnStep2">Select the items you wish to return and
+                                specify the
                                 reason.</p>
                         </div>
-                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                        <div
+                            class="flex items-start md:items-center gap-6 p-6 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-[#6B1C23]/5">
                             <div
                                 class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
                                 3</div>
-                            <p class="text-[#6B1C23] font-medium">Our team will review your request and send a pre-paid
+                            <p class="text-[#6B1C23] font-medium text-lg" data-i18n="returnsPolicy.returnStep3">Our team will review your request and send a
+                                pre-paid
                                 shipping label within 24 hours.</p>
                         </div>
-                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                        <div
+                            class="flex items-start md:items-center gap-6 p-6 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-[#6B1C23]/5">
                             <div
                                 class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
                                 4</div>
-                            <p class="text-[#6B1C23] font-medium">Pack the items securely in the original packaging.</p>
+                            <p class="text-[#6B1C23] font-medium text-lg" data-i18n="returnsPolicy.returnStep4">Pack the items securely in the original
+                                packaging.</p>
                         </div>
-                        <div class="flex items-center gap-6 p-4 hover:bg-white rounded-lg transition-colors">
+                        <div
+                            class="flex items-start md:items-center gap-6 p-6 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-[#6B1C23]/5">
                             <div
                                 class="flex-shrink-0 w-10 h-10 rounded-full bg-[#550000] text-white flex items-center justify-center font-bold font-display shadow-md">
                                 5</div>
-                            <p class="text-[#6B1C23] font-medium">Drop off at your nearest collection point or schedule
+                            <p class="text-[#6B1C23] font-medium text-lg" data-i18n="returnsPolicy.returnStep5">Drop off at your nearest collection point or
+                                schedule
                                 a courier pickup.</p>
                         </div>
                     </div>
@@ -260,35 +292,41 @@
 
             <!-- FAQ -->
             <section class="space-y-8 pt-12 border-t border-[#6B1C23]/10">
-                <h2 class="text-2xl font-display font-semibold text-[#550000] text-center mb-12">Frequently Asked
+                <h2 class="text-3xl md:text-4xl font-display font-semibold text-[#550000] text-center mb-12" data-i18n="returnsPolicy.faqTitle">Frequently
+                    Asked
                     Questions</h2>
 
                 <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
                     <div class="space-y-3">
-                        <h4 class="text-[#550000] font-bold text-sm uppercase tracking-wider">Can I modify my order?
+                        <h4 class="text-[#550000] font-bold text-base md:text-lg uppercase tracking-wider" data-i18n="returnsPolicy.faqQ1">Can I modify
+                            my order?
                         </h4>
-                        <p class="text-[#6B1C23]/80 text-sm leading-relaxed">As we process orders quickly, modifications
+                        <p class="text-[#6B1C23]/80 text-base leading-relaxed" data-i18n="returnsPolicy.faqA1">As we process orders quickly,
+                            modifications
                             are only possible within 2 hours of placement. Please contact us via WhatsApp immediately.
                         </p>
                     </div>
                     <div class="space-y-3">
-                        <h4 class="text-[#550000] font-bold text-sm uppercase tracking-wider">Are bespoke orders
+                        <h4 class="text-[#550000] font-bold text-base md:text-lg uppercase tracking-wider" data-i18n="returnsPolicy.faqQ2">Are bespoke
+                            orders
                             eligible?</h4>
-                        <p class="text-[#6B1C23]/80 text-sm leading-relaxed">Custom-made or bespoke abayas are crafted
+                        <p class="text-[#6B1C23]/80 text-base leading-relaxed" data-i18n="returnsPolicy.faqA2">Custom-made or bespoke abayas are crafted
                             specifically to your measurements and are therefore non-refundable unless a manufacturing
                             defect exists.</p>
                     </div>
                     <div class="space-y-3">
-                        <h4 class="text-[#550000] font-bold text-sm uppercase tracking-wider">How long does the refund
+                        <h4 class="text-[#550000] font-bold text-base md:text-lg uppercase tracking-wider" data-i18n="returnsPolicy.faqQ3">How long does
+                            the refund
                             take?</h4>
-                        <p class="text-[#6B1C23]/80 text-sm leading-relaxed">Refunds are processed to the original
+                        <p class="text-[#6B1C23]/80 text-base leading-relaxed" data-i18n="returnsPolicy.faqA3">Refunds are processed to the original
                             payment method within 10-14 business days after we receive and inspect your returned items.
                         </p>
                     </div>
                     <div class="space-y-3">
-                        <h4 class="text-[#550000] font-bold text-sm uppercase tracking-wider">Who pays for return
+                        <h4 class="text-[#550000] font-bold text-base md:text-lg uppercase tracking-wider" data-i18n="returnsPolicy.faqQ4">Who pays for
+                            return
                             shipping?</h4>
-                        <p class="text-[#6B1C23]/80 text-sm leading-relaxed">For domestic orders over $500, return
+                        <p class="text-[#6B1C23]/80 text-base leading-relaxed" data-i18n="returnsPolicy.faqA4">For domestic orders over $500, return
                             shipping is complimentary. For all other orders, a small processing fee is deducted from the
                             refund.</p>
                     </div>
@@ -298,15 +336,16 @@
             <!-- Help Box -->
             <section class="text-center bg-white border border-[#6B1C23]/10 p-12 rounded-2xl shadow-sm space-y-6">
                 <div>
-                    <h3 class="text-2xl font-display font-bold text-[#550000] mb-2">Need Help?</h3>
-                    <p class="text-[#6B1C23]/80 max-w-sm mx-auto text-sm">Our concierge team is available to assist with
+                    <h3 class="text-3xl font-display font-bold text-[#550000] mb-4" data-i18n="returnsPolicy.helpTitle">Need Help?</h3>
+                    <p class="text-[#6B1C23]/80 max-w-sm mx-auto text-base leading-relaxed" data-i18n="returnsPolicy.helpText">Our concierge team is
+                        available to assist with
                         your shipping or return queries.</p>
                 </div>
                 <div class="pt-2">
                     <a href="https://wa.me/971502507859"
                         class="inline-flex items-center gap-3 bg-[#550000] text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#6B1C23] transition-all hover:scale-105 shadow-md">
                         <i class="fa-brands fa-whatsapp text-lg"></i>
-                        Chat on WhatsApp
+                        <span data-i18n="returnsPolicy.helpCta">Chat on WhatsApp</span>
                     </a>
                 </div>
             </section>
@@ -322,7 +361,7 @@
                 <a href="index.html" class="inline-flex items-center gap-2 group hover:opacity-80 transition-opacity">
                     <img src="assets/images/logo.png" alt="LYORE ABAYA" class="h-10 w-auto object-contain">
                 </a>
-                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0">
+                <p class="text-sm font-light leading-relaxed opacity-80 max-w-xs mx-auto md:mx-0" data-i18n="footer.brandDescription">
                     Redefining modest elegance with a commitment to premium craftsmanship and timeless silhouettes.
                     Inspired by the diamond within.
                 </p>
@@ -331,22 +370,22 @@
             <!-- Links -->
             <div class="flex justify-center md:justify-start gap-16">
                 <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Explore</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.exploreTitle">Explore</h4>
                     <ul class="space-y-4 text-sm font-medium tracking-wide">
-                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Home</a>
+                        <li><a href="index.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.home">Home</a>
                         </li>
                         <li><a href="collections.html"
-                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Collection</a></li>
-                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Size
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.collection">Collection</a></li>
+                        <li><a href="size-guide.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.sizeGuide">Size
                                 Guide</a></li>
                     </ul>
                 </div>
                 <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Help</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.helpTitle">Help</h4>
                     <ul class="space-y-4 text-sm font-medium tracking-wide">
                         <li><a href="returns-policy.html"
-                                class="hover:opacity-70 transition-opacity text-[#6B1C23]">Shipping & Return</a></li>
-                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]">Contact
+                                class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.shippingReturn">Shipping & Return</a></li>
+                        <li><a href="contact.html" class="hover:opacity-70 transition-opacity text-[#6B1C23]" data-i18n="nav.contact">Contact
                                 Us</a></li>
                     </ul>
                 </div>
@@ -354,7 +393,7 @@
 
             <!-- Connect -->
             <div class="space-y-6 text-center md:text-left">
-                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60">Connect</h4>
+                <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-60" data-i18n="footer.connectTitle">Connect</h4>
                 <div class="space-y-4">
                     <a href="https://wa.me/971502507859"
                         class="flex items-center justify-center md:justify-start gap-3 hover:opacity-70 transition-opacity text-sm font-medium text-[#6B1C23]">
@@ -387,7 +426,7 @@
 
         <div
             class="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#6B1C23]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.2em] opacity-60">
-            <p>© 2025 LYORE ABAYA. All Rights Reserved.</p>
+            <p data-i18n="footer.copyright">© 2025 LYORE ABAYA. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -405,6 +444,9 @@
             }
         }
     </script>
+
+    <!-- Main JS - Initialize translation system and other functionality -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
